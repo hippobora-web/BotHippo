@@ -1,9 +1,9 @@
 {
   "queue_path": "tasks/wina_auto_queue.json",
   "state_path": "tasks/wina_auto_queue.state.json",
-  "started_at": "2026-03-06T16:09:15.327787+00:00",
-  "updated_at": "2026-03-06T16:09:15.684177+00:00",
-  "finished_at": "2026-03-06T16:09:15.684177+00:00",
+  "started_at": "2026-03-06T16:27:26.342319+00:00",
+  "updated_at": "2026-03-06T16:27:26.713932+00:00",
+  "finished_at": "2026-03-06T16:27:26.713932+00:00",
   "tasks": [
     {
       "task": "add tests for dev_orchestrator/queue_runner.py",
@@ -12,8 +12,8 @@
       "result": {
         "task": "add tests for dev_orchestrator/queue_runner.py",
         "workdir": ".",
-        "started_at": "2026-03-06T16:09:15.343252+00:00",
-        "finished_at": "2026-03-06T16:09:15.343268+00:00",
+        "started_at": "2026-03-06T16:27:26.358305+00:00",
+        "finished_at": "2026-03-06T16:27:26.358323+00:00",
         "plan": {
           "summary": "Execute task with Codex wrapper, local checks, and git summary.",
           "steps": [
@@ -141,14 +141,11 @@
         "git": {
           "is_git_repo": 1,
           "branch": "pr-dev-orchestrator-v5",
-          "status_short": "## pr-dev-orchestrator-v5...origin/pr-dev-orchestrator-v5\n M dev_orchestrator/reviewer.py\n M dev_orchestrator/schemas.py\n M dev_orchestrator/supervisor.py\n M run_dev_agent.py\n?? dev_orchestrator/github_pr.py\n?? dev_orchestrator/queue_runner.py\n?? dev_orchestrator/task_discovery.py\n?? tasks/",
-          "diff_stat": "dev_orchestrator/reviewer.py   |  44 ++++\n dev_orchestrator/schemas.py    |  79 +++++++\n dev_orchestrator/supervisor.py | 487 +++++++++++++++++++++++++++++++++++++++++\n run_dev_agent.py               |  57 ++++-\n 4 files changed, 665 insertions(+), 2 deletions(-)",
+          "status_short": "## pr-dev-orchestrator-v5...origin/pr-dev-orchestrator-v5\n M tasks/wina_auto_queue.state.json",
+          "diff_stat": "tasks/wina_auto_queue.state.json | 1392 +-------------------------------------\n 1 file changed, 21 insertions(+), 1371 deletions(-)",
           "staged_diff_stat": "",
           "changed_files": [
-            "dev_orchestrator/reviewer.py",
-            "dev_orchestrator/schemas.py",
-            "dev_orchestrator/supervisor.py",
-            "run_dev_agent.py"
+            "tasks/wina_auto_queue.state.json"
           ]
         },
         "branch_name": "",
@@ -168,8 +165,8 @@
       "result": {
         "task": "add tests for dev_orchestrator/supervisor.py",
         "workdir": ".",
-        "started_at": "2026-03-06T16:09:15.383430+00:00",
-        "finished_at": "2026-03-06T16:09:15.383433+00:00",
+        "started_at": "2026-03-06T16:27:26.398722+00:00",
+        "finished_at": "2026-03-06T16:27:26.398726+00:00",
         "plan": {
           "summary": "Execute task with Codex wrapper, local checks, and git summary.",
           "steps": [
@@ -297,14 +294,11 @@
         "git": {
           "is_git_repo": 1,
           "branch": "pr-dev-orchestrator-v5",
-          "status_short": "## pr-dev-orchestrator-v5...origin/pr-dev-orchestrator-v5\n M dev_orchestrator/reviewer.py\n M dev_orchestrator/schemas.py\n M dev_orchestrator/supervisor.py\n M run_dev_agent.py\n?? dev_orchestrator/github_pr.py\n?? dev_orchestrator/queue_runner.py\n?? dev_orchestrator/task_discovery.py\n?? tasks/",
-          "diff_stat": "dev_orchestrator/reviewer.py   |  44 ++++\n dev_orchestrator/schemas.py    |  79 +++++++\n dev_orchestrator/supervisor.py | 487 +++++++++++++++++++++++++++++++++++++++++\n run_dev_agent.py               |  57 ++++-\n 4 files changed, 665 insertions(+), 2 deletions(-)",
+          "status_short": "## pr-dev-orchestrator-v5...origin/pr-dev-orchestrator-v5\n M tasks/wina_auto_queue.state.json",
+          "diff_stat": "tasks/wina_auto_queue.state.json | 1251 +-------------------------------------\n 1 file changed, 24 insertions(+), 1227 deletions(-)",
           "staged_diff_stat": "",
           "changed_files": [
-            "dev_orchestrator/reviewer.py",
-            "dev_orchestrator/schemas.py",
-            "dev_orchestrator/supervisor.py",
-            "run_dev_agent.py"
+            "tasks/wina_auto_queue.state.json"
           ]
         },
         "branch_name": "",
@@ -324,8 +318,8 @@
       "result": {
         "task": "add tests for evengine/agents/quant_agent.py",
         "workdir": ".",
-        "started_at": "2026-03-06T16:09:15.420471+00:00",
-        "finished_at": "2026-03-06T16:09:15.420474+00:00",
+        "started_at": "2026-03-06T16:27:26.437081+00:00",
+        "finished_at": "2026-03-06T16:27:26.437084+00:00",
         "plan": {
           "summary": "Execute task with Codex wrapper, local checks, and git summary.",
           "steps": [
@@ -453,14 +447,11 @@
         "git": {
           "is_git_repo": 1,
           "branch": "pr-dev-orchestrator-v5",
-          "status_short": "## pr-dev-orchestrator-v5...origin/pr-dev-orchestrator-v5\n M dev_orchestrator/reviewer.py\n M dev_orchestrator/schemas.py\n M dev_orchestrator/supervisor.py\n M run_dev_agent.py\n?? dev_orchestrator/github_pr.py\n?? dev_orchestrator/queue_runner.py\n?? dev_orchestrator/task_discovery.py\n?? tasks/",
-          "diff_stat": "dev_orchestrator/reviewer.py   |  44 ++++\n dev_orchestrator/schemas.py    |  79 +++++++\n dev_orchestrator/supervisor.py | 487 +++++++++++++++++++++++++++++++++++++++++\n run_dev_agent.py               |  57 ++++-\n 4 files changed, 665 insertions(+), 2 deletions(-)",
+          "status_short": "## pr-dev-orchestrator-v5...origin/pr-dev-orchestrator-v5\n M tasks/wina_auto_queue.state.json",
+          "diff_stat": "tasks/wina_auto_queue.state.json | 1110 +-------------------------------------\n 1 file changed, 27 insertions(+), 1083 deletions(-)",
           "staged_diff_stat": "",
           "changed_files": [
-            "dev_orchestrator/reviewer.py",
-            "dev_orchestrator/schemas.py",
-            "dev_orchestrator/supervisor.py",
-            "run_dev_agent.py"
+            "tasks/wina_auto_queue.state.json"
           ]
         },
         "branch_name": "",
@@ -480,8 +471,8 @@
       "result": {
         "task": "add tests for evengine/agents/supervisor.py",
         "workdir": ".",
-        "started_at": "2026-03-06T16:09:15.459821+00:00",
-        "finished_at": "2026-03-06T16:09:15.459823+00:00",
+        "started_at": "2026-03-06T16:27:26.476448+00:00",
+        "finished_at": "2026-03-06T16:27:26.476450+00:00",
         "plan": {
           "summary": "Execute task with Codex wrapper, local checks, and git summary.",
           "steps": [
@@ -609,14 +600,11 @@
         "git": {
           "is_git_repo": 1,
           "branch": "pr-dev-orchestrator-v5",
-          "status_short": "## pr-dev-orchestrator-v5...origin/pr-dev-orchestrator-v5\n M dev_orchestrator/reviewer.py\n M dev_orchestrator/schemas.py\n M dev_orchestrator/supervisor.py\n M run_dev_agent.py\n?? dev_orchestrator/github_pr.py\n?? dev_orchestrator/queue_runner.py\n?? dev_orchestrator/task_discovery.py\n?? tasks/",
-          "diff_stat": "dev_orchestrator/reviewer.py   |  44 ++++\n dev_orchestrator/schemas.py    |  79 +++++++\n dev_orchestrator/supervisor.py | 487 +++++++++++++++++++++++++++++++++++++++++\n run_dev_agent.py               |  57 ++++-\n 4 files changed, 665 insertions(+), 2 deletions(-)",
+          "status_short": "## pr-dev-orchestrator-v5...origin/pr-dev-orchestrator-v5\n M tasks/wina_auto_queue.state.json",
+          "diff_stat": "tasks/wina_auto_queue.state.json | 969 ++-------------------------------------\n 1 file changed, 30 insertions(+), 939 deletions(-)",
           "staged_diff_stat": "",
           "changed_files": [
-            "dev_orchestrator/reviewer.py",
-            "dev_orchestrator/schemas.py",
-            "dev_orchestrator/supervisor.py",
-            "run_dev_agent.py"
+            "tasks/wina_auto_queue.state.json"
           ]
         },
         "branch_name": "",
@@ -636,8 +624,8 @@
       "result": {
         "task": "replace placeholder pass statements in dev_orchestrator/reviewer.py",
         "workdir": ".",
-        "started_at": "2026-03-06T16:09:15.497800+00:00",
-        "finished_at": "2026-03-06T16:09:15.497802+00:00",
+        "started_at": "2026-03-06T16:27:26.514590+00:00",
+        "finished_at": "2026-03-06T16:27:26.514598+00:00",
         "plan": {
           "summary": "Execute task with Codex wrapper, local checks, and git summary.",
           "steps": [
@@ -765,14 +753,11 @@
         "git": {
           "is_git_repo": 1,
           "branch": "pr-dev-orchestrator-v5",
-          "status_short": "## pr-dev-orchestrator-v5...origin/pr-dev-orchestrator-v5\n M dev_orchestrator/reviewer.py\n M dev_orchestrator/schemas.py\n M dev_orchestrator/supervisor.py\n M run_dev_agent.py\n?? dev_orchestrator/github_pr.py\n?? dev_orchestrator/queue_runner.py\n?? dev_orchestrator/task_discovery.py\n?? tasks/",
-          "diff_stat": "dev_orchestrator/reviewer.py   |  44 ++++\n dev_orchestrator/schemas.py    |  79 +++++++\n dev_orchestrator/supervisor.py | 487 +++++++++++++++++++++++++++++++++++++++++\n run_dev_agent.py               |  57 ++++-\n 4 files changed, 665 insertions(+), 2 deletions(-)",
+          "status_short": "## pr-dev-orchestrator-v5...origin/pr-dev-orchestrator-v5\n M tasks/wina_auto_queue.state.json",
+          "diff_stat": "tasks/wina_auto_queue.state.json | 828 ++-------------------------------------\n 1 file changed, 33 insertions(+), 795 deletions(-)",
           "staged_diff_stat": "",
           "changed_files": [
-            "dev_orchestrator/reviewer.py",
-            "dev_orchestrator/schemas.py",
-            "dev_orchestrator/supervisor.py",
-            "run_dev_agent.py"
+            "tasks/wina_auto_queue.state.json"
           ]
         },
         "branch_name": "",
@@ -792,8 +777,8 @@
       "result": {
         "task": "replace placeholder pass statements in evengine/agents/quant_engine_adapter.py",
         "workdir": ".",
-        "started_at": "2026-03-06T16:09:15.537926+00:00",
-        "finished_at": "2026-03-06T16:09:15.537935+00:00",
+        "started_at": "2026-03-06T16:27:26.552466+00:00",
+        "finished_at": "2026-03-06T16:27:26.552474+00:00",
         "plan": {
           "summary": "Execute task with Codex wrapper, local checks, and git summary.",
           "steps": [
@@ -921,14 +906,11 @@
         "git": {
           "is_git_repo": 1,
           "branch": "pr-dev-orchestrator-v5",
-          "status_short": "## pr-dev-orchestrator-v5...origin/pr-dev-orchestrator-v5\n M dev_orchestrator/reviewer.py\n M dev_orchestrator/schemas.py\n M dev_orchestrator/supervisor.py\n M run_dev_agent.py\n?? dev_orchestrator/github_pr.py\n?? dev_orchestrator/queue_runner.py\n?? dev_orchestrator/task_discovery.py\n?? tasks/",
-          "diff_stat": "dev_orchestrator/reviewer.py   |  44 ++++\n dev_orchestrator/schemas.py    |  79 +++++++\n dev_orchestrator/supervisor.py | 487 +++++++++++++++++++++++++++++++++++++++++\n run_dev_agent.py               |  57 ++++-\n 4 files changed, 665 insertions(+), 2 deletions(-)",
+          "status_short": "## pr-dev-orchestrator-v5...origin/pr-dev-orchestrator-v5\n M tasks/wina_auto_queue.state.json",
+          "diff_stat": "tasks/wina_auto_queue.state.json | 687 ++-------------------------------------\n 1 file changed, 36 insertions(+), 651 deletions(-)",
           "staged_diff_stat": "",
           "changed_files": [
-            "dev_orchestrator/reviewer.py",
-            "dev_orchestrator/schemas.py",
-            "dev_orchestrator/supervisor.py",
-            "run_dev_agent.py"
+            "tasks/wina_auto_queue.state.json"
           ]
         },
         "branch_name": "",
@@ -948,8 +930,8 @@
       "result": {
         "task": "refactor oversized module dev_orchestrator/reviewer.py",
         "workdir": ".",
-        "started_at": "2026-03-06T16:09:15.574656+00:00",
-        "finished_at": "2026-03-06T16:09:15.574658+00:00",
+        "started_at": "2026-03-06T16:27:26.590865+00:00",
+        "finished_at": "2026-03-06T16:27:26.590867+00:00",
         "plan": {
           "summary": "Execute task with Codex wrapper, local checks, and git summary.",
           "steps": [
@@ -1077,14 +1059,11 @@
         "git": {
           "is_git_repo": 1,
           "branch": "pr-dev-orchestrator-v5",
-          "status_short": "## pr-dev-orchestrator-v5...origin/pr-dev-orchestrator-v5\n M dev_orchestrator/reviewer.py\n M dev_orchestrator/schemas.py\n M dev_orchestrator/supervisor.py\n M run_dev_agent.py\n?? dev_orchestrator/github_pr.py\n?? dev_orchestrator/queue_runner.py\n?? dev_orchestrator/task_discovery.py\n?? tasks/",
-          "diff_stat": "dev_orchestrator/reviewer.py   |  44 ++++\n dev_orchestrator/schemas.py    |  79 +++++++\n dev_orchestrator/supervisor.py | 487 +++++++++++++++++++++++++++++++++++++++++\n run_dev_agent.py               |  57 ++++-\n 4 files changed, 665 insertions(+), 2 deletions(-)",
+          "status_short": "## pr-dev-orchestrator-v5...origin/pr-dev-orchestrator-v5\n M tasks/wina_auto_queue.state.json",
+          "diff_stat": "tasks/wina_auto_queue.state.json | 546 +++------------------------------------\n 1 file changed, 39 insertions(+), 507 deletions(-)",
           "staged_diff_stat": "",
           "changed_files": [
-            "dev_orchestrator/reviewer.py",
-            "dev_orchestrator/schemas.py",
-            "dev_orchestrator/supervisor.py",
-            "run_dev_agent.py"
+            "tasks/wina_auto_queue.state.json"
           ]
         },
         "branch_name": "",
@@ -1104,8 +1083,8 @@
       "result": {
         "task": "refactor oversized module dev_orchestrator/supervisor.py",
         "workdir": ".",
-        "started_at": "2026-03-06T16:09:15.611074+00:00",
-        "finished_at": "2026-03-06T16:09:15.611076+00:00",
+        "started_at": "2026-03-06T16:27:26.631283+00:00",
+        "finished_at": "2026-03-06T16:27:26.631285+00:00",
         "plan": {
           "summary": "Execute task with Codex wrapper, local checks, and git summary.",
           "steps": [
@@ -1233,14 +1212,11 @@
         "git": {
           "is_git_repo": 1,
           "branch": "pr-dev-orchestrator-v5",
-          "status_short": "## pr-dev-orchestrator-v5...origin/pr-dev-orchestrator-v5\n M dev_orchestrator/reviewer.py\n M dev_orchestrator/schemas.py\n M dev_orchestrator/supervisor.py\n M run_dev_agent.py\n?? dev_orchestrator/github_pr.py\n?? dev_orchestrator/queue_runner.py\n?? dev_orchestrator/task_discovery.py\n?? tasks/",
-          "diff_stat": "dev_orchestrator/reviewer.py   |  44 ++++\n dev_orchestrator/schemas.py    |  79 +++++++\n dev_orchestrator/supervisor.py | 487 +++++++++++++++++++++++++++++++++++++++++\n run_dev_agent.py               |  57 ++++-\n 4 files changed, 665 insertions(+), 2 deletions(-)",
+          "status_short": "## pr-dev-orchestrator-v5...origin/pr-dev-orchestrator-v5\n M tasks/wina_auto_queue.state.json",
+          "diff_stat": "tasks/wina_auto_queue.state.json | 405 ++++-----------------------------------\n 1 file changed, 42 insertions(+), 363 deletions(-)",
           "staged_diff_stat": "",
           "changed_files": [
-            "dev_orchestrator/reviewer.py",
-            "dev_orchestrator/schemas.py",
-            "dev_orchestrator/supervisor.py",
-            "run_dev_agent.py"
+            "tasks/wina_auto_queue.state.json"
           ]
         },
         "branch_name": "",
@@ -1260,8 +1236,8 @@
       "result": {
         "task": "refactor oversized module evengine/agents/quant_engine_adapter.py",
         "workdir": ".",
-        "started_at": "2026-03-06T16:09:15.647303+00:00",
-        "finished_at": "2026-03-06T16:09:15.647305+00:00",
+        "started_at": "2026-03-06T16:27:26.672428+00:00",
+        "finished_at": "2026-03-06T16:27:26.672430+00:00",
         "plan": {
           "summary": "Execute task with Codex wrapper, local checks, and git summary.",
           "steps": [
@@ -1389,14 +1365,11 @@
         "git": {
           "is_git_repo": 1,
           "branch": "pr-dev-orchestrator-v5",
-          "status_short": "## pr-dev-orchestrator-v5...origin/pr-dev-orchestrator-v5\n M dev_orchestrator/reviewer.py\n M dev_orchestrator/schemas.py\n M dev_orchestrator/supervisor.py\n M run_dev_agent.py\n?? dev_orchestrator/github_pr.py\n?? dev_orchestrator/queue_runner.py\n?? dev_orchestrator/task_discovery.py\n?? tasks/",
-          "diff_stat": "dev_orchestrator/reviewer.py   |  44 ++++\n dev_orchestrator/schemas.py    |  79 +++++++\n dev_orchestrator/supervisor.py | 487 +++++++++++++++++++++++++++++++++++++++++\n run_dev_agent.py               |  57 ++++-\n 4 files changed, 665 insertions(+), 2 deletions(-)",
+          "status_short": "## pr-dev-orchestrator-v5...origin/pr-dev-orchestrator-v5\n M tasks/wina_auto_queue.state.json",
+          "diff_stat": "tasks/wina_auto_queue.state.json | 264 +++++++--------------------------------\n 1 file changed, 45 insertions(+), 219 deletions(-)",
           "staged_diff_stat": "",
           "changed_files": [
-            "dev_orchestrator/reviewer.py",
-            "dev_orchestrator/schemas.py",
-            "dev_orchestrator/supervisor.py",
-            "run_dev_agent.py"
+            "tasks/wina_auto_queue.state.json"
           ]
         },
         "branch_name": "",
