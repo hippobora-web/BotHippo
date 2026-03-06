@@ -113,6 +113,102 @@ class PRMetadata(BaseModel):
     risk_summary: str = ""
 
 
+class DiscoveredTask(BaseModel):
+    """One deterministic candidate development task discovered from the repository."""
+
+    task: str
+    priority: int
+    source: str
+    evidence: list[str] = Field(default_factory=list)
+
+
+class DiscoveryResult(BaseModel):
+    """Structured result of deterministic repository task discovery."""
+
+    repo_path: str
+    started_at: str
+    finished_at: str
+    tasks: list[DiscoveredTask] = Field(default_factory=list)
+    output_queue_path: str = ""
+
+
+class AutoLoopCycleResult(BaseModel):
+    """Structured result for one bounded autonomous loop cycle."""
+
+    cycle_index: int
+    discovered_task_count: int
+    queue_path: str = ""
+    queue_result: dict = Field(default_factory=dict)
+    stopped_reason: str = ""
+
+
+class AutoLoopResult(BaseModel):
+    """Structured result for a bounded autonomous development loop."""
+
+    workdir: str
+    started_at: str
+    finished_at: str
+    max_cycles: int
+    completed_cycles: int
+    cycles: list[AutoLoopCycleResult] = Field(default_factory=list)
+    stopped_reason: str = ""
+
+
+class QueuedTaskItem(BaseModel):
+    """One queued development task with optional per-item overrides."""
+
+    task: str
+    run_codex: Optional[int] = None
+    run_tests: Optional[int] = None
+    codex_command: Optional[str] = None
+    codex_timeout_seconds: Optional[int] = None
+    codex_prompt_via_stdin: Optional[int] = None
+    test_commands: list[str] = Field(default_factory=list)
+
+
+class QueueRunSummary(BaseModel):
+    """Aggregate counts for a queued orchestrator execution."""
+
+    total_tasks: int
+    succeeded: int
+    failed: int
+    needs_review: int
+    failed_after_repair: int
+    ready_for_pr: int
+
+
+class QueueRunResult(BaseModel):
+    """Structured result for a sequential queue execution."""
+
+    queue_path: str
+    state_path: str = ""
+    resumed: int = 0
+    started_at: str
+    finished_at: str
+    results: list[dict] = Field(default_factory=list)
+    summary: dict = Field(default_factory=dict)
+
+
+class PersistentQueueTaskState(BaseModel):
+    """Persistent per-task execution state for a queue run."""
+
+    task: str
+    status: str
+    queue_index: int
+    result: dict = Field(default_factory=dict)
+
+
+class PersistentQueueState(BaseModel):
+    """Persistent queue execution state stored on disk."""
+
+    queue_path: str
+    state_path: str
+    started_at: str
+    updated_at: str
+    finished_at: str = ""
+    tasks: list[PersistentQueueTaskState] = Field(default_factory=list)
+
+
 class ReviewResult(BaseModel):
     """Deterministic review result based on git changes."""
 
@@ -178,5 +274,10 @@ class DevRunResult(BaseModel):
     git_action_result: dict
     git: GitSummary
     branch_name: str
+    pr_url: str = ""
+    auto_merge_attempted: int = 0
+    auto_merge_ok: int = 0
+    queue_index: Optional[int] = None
+    queue_total: Optional[int] = None
     merge_recommendation: str
     success: int

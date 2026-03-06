@@ -66,8 +66,14 @@ def _has_sensitive_path(path: str) -> bool:
         ".env",
         "secret",
         "secrets",
+        "credential",
+        "credentials",
+        "token",
+        "tokens",
         "deploy",
         "deployment",
+        "logs/",
+        "/logs/",
         ".pem",
         ".key",
     )
@@ -300,6 +306,44 @@ def build_pr_metadata(
         change_scope_summary=change_scope_summary,
         risk_summary=risk_summary,
     )
+
+
+def _all_files_match_prefixes(changed_files: list[str], allowed_prefixes: tuple[str, ...]) -> int:
+    """Return 1 only when every changed file matches one of the allowed prefixes."""
+
+    if not changed_files:
+        return 0
+    return 1 if all(_matches_any_prefix(path, list(allowed_prefixes)) for path in changed_files) else 0
+
+
+def is_dev_orchestrator_only_change(review_result: ReviewResult) -> int:
+    """Return 1 only when all changed files belong to the dev orchestrator scope."""
+
+    return _all_files_match_prefixes(
+        review_result.changed_files,
+        ("dev_orchestrator/", "run_dev_agent.py"),
+    )
+
+
+def is_evengine_only_change(review_result: ReviewResult) -> int:
+    """Return 1 only when all changed files belong to the evengine scope."""
+
+    return _all_files_match_prefixes(review_result.changed_files, ("evengine/",))
+
+
+def is_safe_evengine_change(review_result: ReviewResult) -> int:
+    """Return 1 only when an evengine change is small and free of sensitive paths."""
+
+    file_count: int = len(review_result.changed_files)
+    inserted_lines: int = _parse_inserted_lines(review_result.summary)
+    has_sensitive_paths: bool = any(_has_sensitive_path(path) for path in review_result.changed_files)
+    if file_count > 20:
+        return 0
+    if inserted_lines > 800:
+        return 0
+    if has_sensitive_paths:
+        return 0
+    return 1
 
 
 def review_changes(repo_path: str, task: str | None = None) -> ReviewResult:

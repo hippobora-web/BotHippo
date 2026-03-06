@@ -1,0 +1,31 @@
+{
+  "tasks": [
+    {
+      "task": "add tests for dev_orchestrator/queue_runner.py"
+    },
+    {
+      "task": "add tests for dev_orchestrator/supervisor.py"
+    },
+    {
+      "task": "add tests for evengine/agents/quant_agent.py"
+    },
+    {
+      "task": "add tests for evengine/agents/supervisor.py"
+    },
+    {
+      "task": "replace placeholder pass statements in dev_orchestrator/reviewer.py"
+    },
+    {
+      "task": "replace placeholder pass statements in evengine/agents/quant_engine_adapter.py"
+    },
+    {
+      "task": "refactor oversized module dev_orchestrator/reviewer.py"
+    },
+    {
+      "task": "refactor oversized module dev_orchestrator/supervisor.py"
+    },
+    {
+      "task": "refactor oversized module evengine/agents/quant_engine_adapter.py"
+    }
+  ]
+}

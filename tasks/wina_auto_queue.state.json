@@ -1,0 +1,1413 @@
+{
+  "queue_path": "tasks/wina_auto_queue.json",
+  "state_path": "tasks/wina_auto_queue.state.json",
+  "started_at": "2026-03-06T16:09:15.327787+00:00",
+  "updated_at": "2026-03-06T16:09:15.684177+00:00",
+  "finished_at": "2026-03-06T16:09:15.684177+00:00",
+  "tasks": [
+    {
+      "task": "add tests for dev_orchestrator/queue_runner.py",
+      "status": "skipped",
+      "queue_index": 1,
+      "result": {
+        "task": "add tests for dev_orchestrator/queue_runner.py",
+        "workdir": ".",
+        "started_at": "2026-03-06T16:09:15.343252+00:00",
+        "finished_at": "2026-03-06T16:09:15.343268+00:00",
+        "plan": {
+          "summary": "Execute task with Codex wrapper, local checks, and git summary.",
+          "steps": [
+            {
+              "step_id": "1",
+              "title": "Create Branch",
+              "description": "Create an isolated task branch from the current HEAD.",
+              "status": "pending"
+            },
+            {
+              "step_id": "2",
+              "title": "Analyze Task",
+              "description": "Read the request and identify target files and constraints.",
+              "status": "pending"
+            },
+            {
+              "step_id": "3",
+              "title": "Implement Changes",
+              "description": "Apply code changes in the repository according to the task.",
+              "status": "pending"
+            },
+            {
+              "step_id": "4",
+              "title": "Run Verification",
+              "description": "Execute local checks/tests and gather outputs.",
+              "status": "pending"
+            },
+            {
+              "step_id": "5",
+              "title": "Review Diff",
+              "description": "Review changed files and diff risk before committing.",
+              "status": "pending"
+            },
+            {
+              "step_id": "6",
+              "title": "Validate Scope",
+              "description": "Ensure modified files are inside the expected task scope before commit/push.",
+              "status": "pending"
+            },
+            {
+              "step_id": "7",
+              "title": "Repair After Failed Checks",
+              "description": "If checks fail, run one constrained Codex repair pass using current errors and diff summary.",
+              "status": "pending"
+            },
+            {
+              "step_id": "8",
+              "title": "Commit And Push",
+              "description": "Commit approved changes and push the task branch to origin.",
+              "status": "pending"
+            },
+            {
+              "step_id": "9",
+              "title": "Return Structured Result",
+              "description": "Return a structured run result with review, git actions, and recommendation.",
+              "status": "pending"
+            }
+          ]
+        },
+        "codex": {
+          "attempted": 0,
+          "ok": 1,
+          "success": 1,
+          "command": [],
+          "return_code": null,
+          "stdout": "",
+          "stderr": "",
+          "error_message": "codex_skipped",
+          "duration_seconds": 0.0
+        },
+        "tests": {
+          "attempted": 0,
+          "all_passed": 1,
+          "checks": []
+        },
+        "repair_attempt": {
+          "attempted": 0,
+          "ok": 0,
+          "prompt_summary": "",
+          "codex_result": {},
+          "review_result": {},
+          "test_result": {}
+        },
+        "loop_metadata": {
+          "initial_pass_ok": 0,
+          "repair_attempted": 0,
+          "repair_ok": 0,
+          "final_pass_ok": 0,
+          "loop_status": "hard_failure"
+        },
+        "scope_evaluation": {
+          "ok": 0,
+          "allowed_files": [],
+          "out_of_scope_files": [],
+          "blocked_files": [],
+          "summary": "queue_stopped_due_to_dirty_repo"
+        },
+        "pr_metadata": {
+          "suggested_title": "feat: add tests for dev_orchestrator/queue_runner.py",
+          "suggested_description": "Update task: add tests for dev_orchestrator/queue_runner.py\n- affected files: 0\n- main scope: no changed files detected\n- review status: attention required\n- risk status: No review risks detected.\n- scope status: No explicit scope constraint was triggered.",
+          "change_scope_summary": "No explicit scope constraint was triggered.",
+          "risk_summary": "No review risks detected."
+        },
+        "reviewer_narrative": {
+          "summary": "Reviewed 0 changed files. No explicit scope constraint was triggered. No blocked files detected. Review status: attention required. No review risks detected.",
+          "notable_changes": [],
+          "warnings": []
+        },
+        "review_result": {
+          "ok": 0,
+          "summary": "queue_stopped_due_to_dirty_repo",
+          "changed_files": [],
+          "risk_flags": [],
+          "allowed_files": [],
+          "out_of_scope_files": [],
+          "blocked_files": []
+        },
+        "git_action_result": {
+          "ok": 0,
+          "branch_name": "",
+          "commit_sha": "",
+          "stdout": "",
+          "stderr": "queue_stopped_due_to_dirty_repo"
+        },
+        "git": {
+          "is_git_repo": 1,
+          "branch": "pr-dev-orchestrator-v5",
+          "status_short": "## pr-dev-orchestrator-v5...origin/pr-dev-orchestrator-v5\n M dev_orchestrator/reviewer.py\n M dev_orchestrator/schemas.py\n M dev_orchestrator/supervisor.py\n M run_dev_agent.py\n?? dev_orchestrator/github_pr.py\n?? dev_orchestrator/queue_runner.py\n?? dev_orchestrator/task_discovery.py\n?? tasks/",
+          "diff_stat": "dev_orchestrator/reviewer.py   |  44 ++++\n dev_orchestrator/schemas.py    |  79 +++++++\n dev_orchestrator/supervisor.py | 487 +++++++++++++++++++++++++++++++++++++++++\n run_dev_agent.py               |  57 ++++-\n 4 files changed, 665 insertions(+), 2 deletions(-)",
+          "staged_diff_stat": "",
+          "changed_files": [
+            "dev_orchestrator/reviewer.py",
+            "dev_orchestrator/schemas.py",
+            "dev_orchestrator/supervisor.py",
+            "run_dev_agent.py"
+          ]
+        },
+        "branch_name": "",
+        "pr_url": "",
+        "auto_merge_attempted": 0,
+        "auto_merge_ok": 0,
+        "queue_index": 1,
+        "queue_total": 9,
+        "merge_recommendation": "failed",
+        "success": 0
+      }
+    },
+    {
+      "task": "add tests for dev_orchestrator/supervisor.py",
+      "status": "skipped",
+      "queue_index": 2,
+      "result": {
+        "task": "add tests for dev_orchestrator/supervisor.py",
+        "workdir": ".",
+        "started_at": "2026-03-06T16:09:15.383430+00:00",
+        "finished_at": "2026-03-06T16:09:15.383433+00:00",
+        "plan": {
+          "summary": "Execute task with Codex wrapper, local checks, and git summary.",
+          "steps": [
+            {
+              "step_id": "1",
+              "title": "Create Branch",
+              "description": "Create an isolated task branch from the current HEAD.",
+              "status": "pending"
+            },
+            {
+              "step_id": "2",
+              "title": "Analyze Task",
+              "description": "Read the request and identify target files and constraints.",
+              "status": "pending"
+            },
+            {
+              "step_id": "3",
+              "title": "Implement Changes",
+              "description": "Apply code changes in the repository according to the task.",
+              "status": "pending"
+            },
+            {
+              "step_id": "4",
+              "title": "Run Verification",
+              "description": "Execute local checks/tests and gather outputs.",
+              "status": "pending"
+            },
+            {
+              "step_id": "5",
+              "title": "Review Diff",
+              "description": "Review changed files and diff risk before committing.",
+              "status": "pending"
+            },
+            {
+              "step_id": "6",
+              "title": "Validate Scope",
+              "description": "Ensure modified files are inside the expected task scope before commit/push.",
+              "status": "pending"
+            },
+            {
+              "step_id": "7",
+              "title": "Repair After Failed Checks",
+              "description": "If checks fail, run one constrained Codex repair pass using current errors and diff summary.",
+              "status": "pending"
+            },
+            {
+              "step_id": "8",
+              "title": "Commit And Push",
+              "description": "Commit approved changes and push the task branch to origin.",
+              "status": "pending"
+            },
+            {
+              "step_id": "9",
+              "title": "Return Structured Result",
+              "description": "Return a structured run result with review, git actions, and recommendation.",
+              "status": "pending"
+            }
+          ]
+        },
+        "codex": {
+          "attempted": 0,
+          "ok": 1,
+          "success": 1,
+          "command": [],
+          "return_code": null,
+          "stdout": "",
+          "stderr": "",
+          "error_message": "codex_skipped",
+          "duration_seconds": 0.0
+        },
+        "tests": {
+          "attempted": 0,
+          "all_passed": 1,
+          "checks": []
+        },
+        "repair_attempt": {
+          "attempted": 0,
+          "ok": 0,
+          "prompt_summary": "",
+          "codex_result": {},
+          "review_result": {},
+          "test_result": {}
+        },
+        "loop_metadata": {
+          "initial_pass_ok": 0,
+          "repair_attempted": 0,
+          "repair_ok": 0,
+          "final_pass_ok": 0,
+          "loop_status": "hard_failure"
+        },
+        "scope_evaluation": {
+          "ok": 0,
+          "allowed_files": [],
+          "out_of_scope_files": [],
+          "blocked_files": [],
+          "summary": "queue_stopped_due_to_dirty_repo"
+        },
+        "pr_metadata": {
+          "suggested_title": "feat: add tests for dev_orchestrator/supervisor.py",
+          "suggested_description": "Update task: add tests for dev_orchestrator/supervisor.py\n- affected files: 0\n- main scope: no changed files detected\n- review status: attention required\n- risk status: No review risks detected.\n- scope status: No explicit scope constraint was triggered.",
+          "change_scope_summary": "No explicit scope constraint was triggered.",
+          "risk_summary": "No review risks detected."
+        },
+        "reviewer_narrative": {
+          "summary": "Reviewed 0 changed files. No explicit scope constraint was triggered. No blocked files detected. Review status: attention required. No review risks detected.",
+          "notable_changes": [],
+          "warnings": []
+        },
+        "review_result": {
+          "ok": 0,
+          "summary": "queue_stopped_due_to_dirty_repo",
+          "changed_files": [],
+          "risk_flags": [],
+          "allowed_files": [],
+          "out_of_scope_files": [],
+          "blocked_files": []
+        },
+        "git_action_result": {
+          "ok": 0,
+          "branch_name": "",
+          "commit_sha": "",
+          "stdout": "",
+          "stderr": "queue_stopped_due_to_dirty_repo"
+        },
+        "git": {
+          "is_git_repo": 1,
+          "branch": "pr-dev-orchestrator-v5",
+          "status_short": "## pr-dev-orchestrator-v5...origin/pr-dev-orchestrator-v5\n M dev_orchestrator/reviewer.py\n M dev_orchestrator/schemas.py\n M dev_orchestrator/supervisor.py\n M run_dev_agent.py\n?? dev_orchestrator/github_pr.py\n?? dev_orchestrator/queue_runner.py\n?? dev_orchestrator/task_discovery.py\n?? tasks/",
+          "diff_stat": "dev_orchestrator/reviewer.py   |  44 ++++\n dev_orchestrator/schemas.py    |  79 +++++++\n dev_orchestrator/supervisor.py | 487 +++++++++++++++++++++++++++++++++++++++++\n run_dev_agent.py               |  57 ++++-\n 4 files changed, 665 insertions(+), 2 deletions(-)",
+          "staged_diff_stat": "",
+          "changed_files": [
+            "dev_orchestrator/reviewer.py",
+            "dev_orchestrator/schemas.py",
+            "dev_orchestrator/supervisor.py",
+            "run_dev_agent.py"
+          ]
+        },
+        "branch_name": "",
+        "pr_url": "",
+        "auto_merge_attempted": 0,
+        "auto_merge_ok": 0,
+        "queue_index": 2,
+        "queue_total": 9,
+        "merge_recommendation": "failed",
+        "success": 0
+      }
+    },
+    {
+      "task": "add tests for evengine/agents/quant_agent.py",
+      "status": "skipped",
+      "queue_index": 3,
+      "result": {
+        "task": "add tests for evengine/agents/quant_agent.py",
+        "workdir": ".",
+        "started_at": "2026-03-06T16:09:15.420471+00:00",
+        "finished_at": "2026-03-06T16:09:15.420474+00:00",
+        "plan": {
+          "summary": "Execute task with Codex wrapper, local checks, and git summary.",
+          "steps": [
+            {
+              "step_id": "1",
+              "title": "Create Branch",
+              "description": "Create an isolated task branch from the current HEAD.",
+              "status": "pending"
+            },
+            {
+              "step_id": "2",
+              "title": "Analyze Task",
+              "description": "Read the request and identify target files and constraints.",
+              "status": "pending"
+            },
+            {
+              "step_id": "3",
+              "title": "Implement Changes",
+              "description": "Apply code changes in the repository according to the task.",
+              "status": "pending"
+            },
+            {
+              "step_id": "4",
+              "title": "Run Verification",
+              "description": "Execute local checks/tests and gather outputs.",
+              "status": "pending"
+            },
+            {
+              "step_id": "5",
+              "title": "Review Diff",
+              "description": "Review changed files and diff risk before committing.",
+              "status": "pending"
+            },
+            {
+              "step_id": "6",
+              "title": "Validate Scope",
+              "description": "Ensure modified files are inside the expected task scope before commit/push.",
+              "status": "pending"
+            },
+            {
+              "step_id": "7",
+              "title": "Repair After Failed Checks",
+              "description": "If checks fail, run one constrained Codex repair pass using current errors and diff summary.",
+              "status": "pending"
+            },
+            {
+              "step_id": "8",
+              "title": "Commit And Push",
+              "description": "Commit approved changes and push the task branch to origin.",
+              "status": "pending"
+            },
+            {
+              "step_id": "9",
+              "title": "Return Structured Result",
+              "description": "Return a structured run result with review, git actions, and recommendation.",
+              "status": "pending"
+            }
+          ]
+        },
+        "codex": {
+          "attempted": 0,
+          "ok": 1,
+          "success": 1,
+          "command": [],
+          "return_code": null,
+          "stdout": "",
+          "stderr": "",
+          "error_message": "codex_skipped",
+          "duration_seconds": 0.0
+        },
+        "tests": {
+          "attempted": 0,
+          "all_passed": 1,
+          "checks": []
+        },
+        "repair_attempt": {
+          "attempted": 0,
+          "ok": 0,
+          "prompt_summary": "",
+          "codex_result": {},
+          "review_result": {},
+          "test_result": {}
+        },
+        "loop_metadata": {
+          "initial_pass_ok": 0,
+          "repair_attempted": 0,
+          "repair_ok": 0,
+          "final_pass_ok": 0,
+          "loop_status": "hard_failure"
+        },
+        "scope_evaluation": {
+          "ok": 0,
+          "allowed_files": [],
+          "out_of_scope_files": [],
+          "blocked_files": [],
+          "summary": "queue_stopped_due_to_dirty_repo"
+        },
+        "pr_metadata": {
+          "suggested_title": "feat: add tests for evengine/agents/quant_agent.py",
+          "suggested_description": "Update task: add tests for evengine/agents/quant_agent.py\n- affected files: 0\n- main scope: no changed files detected\n- review status: attention required\n- risk status: No review risks detected.\n- scope status: No explicit scope constraint was triggered.",
+          "change_scope_summary": "No explicit scope constraint was triggered.",
+          "risk_summary": "No review risks detected."
+        },
+        "reviewer_narrative": {
+          "summary": "Reviewed 0 changed files. No explicit scope constraint was triggered. No blocked files detected. Review status: attention required. No review risks detected.",
+          "notable_changes": [],
+          "warnings": []
+        },
+        "review_result": {
+          "ok": 0,
+          "summary": "queue_stopped_due_to_dirty_repo",
+          "changed_files": [],
+          "risk_flags": [],
+          "allowed_files": [],
+          "out_of_scope_files": [],
+          "blocked_files": []
+        },
+        "git_action_result": {
+          "ok": 0,
+          "branch_name": "",
+          "commit_sha": "",
+          "stdout": "",
+          "stderr": "queue_stopped_due_to_dirty_repo"
+        },
+        "git": {
+          "is_git_repo": 1,
+          "branch": "pr-dev-orchestrator-v5",
+          "status_short": "## pr-dev-orchestrator-v5...origin/pr-dev-orchestrator-v5\n M dev_orchestrator/reviewer.py\n M dev_orchestrator/schemas.py\n M dev_orchestrator/supervisor.py\n M run_dev_agent.py\n?? dev_orchestrator/github_pr.py\n?? dev_orchestrator/queue_runner.py\n?? dev_orchestrator/task_discovery.py\n?? tasks/",
+          "diff_stat": "dev_orchestrator/reviewer.py   |  44 ++++\n dev_orchestrator/schemas.py    |  79 +++++++\n dev_orchestrator/supervisor.py | 487 +++++++++++++++++++++++++++++++++++++++++\n run_dev_agent.py               |  57 ++++-\n 4 files changed, 665 insertions(+), 2 deletions(-)",
+          "staged_diff_stat": "",
+          "changed_files": [
+            "dev_orchestrator/reviewer.py",
+            "dev_orchestrator/schemas.py",
+            "dev_orchestrator/supervisor.py",
+            "run_dev_agent.py"
+          ]
+        },
+        "branch_name": "",
+        "pr_url": "",
+        "auto_merge_attempted": 0,
+        "auto_merge_ok": 0,
+        "queue_index": 3,
+        "queue_total": 9,
+        "merge_recommendation": "failed",
+        "success": 0
+      }
+    },
+    {
+      "task": "add tests for evengine/agents/supervisor.py",
+      "status": "skipped",
+      "queue_index": 4,
+      "result": {
+        "task": "add tests for evengine/agents/supervisor.py",
+        "workdir": ".",
+        "started_at": "2026-03-06T16:09:15.459821+00:00",
+        "finished_at": "2026-03-06T16:09:15.459823+00:00",
+        "plan": {
+          "summary": "Execute task with Codex wrapper, local checks, and git summary.",
+          "steps": [
+            {
+              "step_id": "1",
+              "title": "Create Branch",
+              "description": "Create an isolated task branch from the current HEAD.",
+              "status": "pending"
+            },
+            {
+              "step_id": "2",
+              "title": "Analyze Task",
+              "description": "Read the request and identify target files and constraints.",
+              "status": "pending"
+            },
+            {
+              "step_id": "3",
+              "title": "Implement Changes",
+              "description": "Apply code changes in the repository according to the task.",
+              "status": "pending"
+            },
+            {
+              "step_id": "4",
+              "title": "Run Verification",
+              "description": "Execute local checks/tests and gather outputs.",
+              "status": "pending"
+            },
+            {
+              "step_id": "5",
+              "title": "Review Diff",
+              "description": "Review changed files and diff risk before committing.",
+              "status": "pending"
+            },
+            {
+              "step_id": "6",
+              "title": "Validate Scope",
+              "description": "Ensure modified files are inside the expected task scope before commit/push.",
+              "status": "pending"
+            },
+            {
+              "step_id": "7",
+              "title": "Repair After Failed Checks",
+              "description": "If checks fail, run one constrained Codex repair pass using current errors and diff summary.",
+              "status": "pending"
+            },
+            {
+              "step_id": "8",
+              "title": "Commit And Push",
+              "description": "Commit approved changes and push the task branch to origin.",
+              "status": "pending"
+            },
+            {
+              "step_id": "9",
+              "title": "Return Structured Result",
+              "description": "Return a structured run result with review, git actions, and recommendation.",
+              "status": "pending"
+            }
+          ]
+        },
+        "codex": {
+          "attempted": 0,
+          "ok": 1,
+          "success": 1,
+          "command": [],
+          "return_code": null,
+          "stdout": "",
+          "stderr": "",
+          "error_message": "codex_skipped",
+          "duration_seconds": 0.0
+        },
+        "tests": {
+          "attempted": 0,
+          "all_passed": 1,
+          "checks": []
+        },
+        "repair_attempt": {
+          "attempted": 0,
+          "ok": 0,
+          "prompt_summary": "",
+          "codex_result": {},
+          "review_result": {},
+          "test_result": {}
+        },
+        "loop_metadata": {
+          "initial_pass_ok": 0,
+          "repair_attempted": 0,
+          "repair_ok": 0,
+          "final_pass_ok": 0,
+          "loop_status": "hard_failure"
+        },
+        "scope_evaluation": {
+          "ok": 0,
+          "allowed_files": [],
+          "out_of_scope_files": [],
+          "blocked_files": [],
+          "summary": "queue_stopped_due_to_dirty_repo"
+        },
+        "pr_metadata": {
+          "suggested_title": "feat: add tests for evengine/agents/supervisor.py",
+          "suggested_description": "Update task: add tests for evengine/agents/supervisor.py\n- affected files: 0\n- main scope: no changed files detected\n- review status: attention required\n- risk status: No review risks detected.\n- scope status: No explicit scope constraint was triggered.",
+          "change_scope_summary": "No explicit scope constraint was triggered.",
+          "risk_summary": "No review risks detected."
+        },
+        "reviewer_narrative": {
+          "summary": "Reviewed 0 changed files. No explicit scope constraint was triggered. No blocked files detected. Review status: attention required. No review risks detected.",
+          "notable_changes": [],
+          "warnings": []
+        },
+        "review_result": {
+          "ok": 0,
+          "summary": "queue_stopped_due_to_dirty_repo",
+          "changed_files": [],
+          "risk_flags": [],
+          "allowed_files": [],
+          "out_of_scope_files": [],
+          "blocked_files": []
+        },
+        "git_action_result": {
+          "ok": 0,
+          "branch_name": "",
+          "commit_sha": "",
+          "stdout": "",
+          "stderr": "queue_stopped_due_to_dirty_repo"
+        },
+        "git": {
+          "is_git_repo": 1,
+          "branch": "pr-dev-orchestrator-v5",
+          "status_short": "## pr-dev-orchestrator-v5...origin/pr-dev-orchestrator-v5\n M dev_orchestrator/reviewer.py\n M dev_orchestrator/schemas.py\n M dev_orchestrator/supervisor.py\n M run_dev_agent.py\n?? dev_orchestrator/github_pr.py\n?? dev_orchestrator/queue_runner.py\n?? dev_orchestrator/task_discovery.py\n?? tasks/",
+          "diff_stat": "dev_orchestrator/reviewer.py   |  44 ++++\n dev_orchestrator/schemas.py    |  79 +++++++\n dev_orchestrator/supervisor.py | 487 +++++++++++++++++++++++++++++++++++++++++\n run_dev_agent.py               |  57 ++++-\n 4 files changed, 665 insertions(+), 2 deletions(-)",
+          "staged_diff_stat": "",
+          "changed_files": [
+            "dev_orchestrator/reviewer.py",
+            "dev_orchestrator/schemas.py",
+            "dev_orchestrator/supervisor.py",
+            "run_dev_agent.py"
+          ]
+        },
+        "branch_name": "",
+        "pr_url": "",
+        "auto_merge_attempted": 0,
+        "auto_merge_ok": 0,
+        "queue_index": 4,
+        "queue_total": 9,
+        "merge_recommendation": "failed",
+        "success": 0
+      }
+    },
+    {
+      "task": "replace placeholder pass statements in dev_orchestrator/reviewer.py",
+      "status": "skipped",
+      "queue_index": 5,
+      "result": {
+        "task": "replace placeholder pass statements in dev_orchestrator/reviewer.py",
+        "workdir": ".",
+        "started_at": "2026-03-06T16:09:15.497800+00:00",
+        "finished_at": "2026-03-06T16:09:15.497802+00:00",
+        "plan": {
+          "summary": "Execute task with Codex wrapper, local checks, and git summary.",
+          "steps": [
+            {
+              "step_id": "1",
+              "title": "Create Branch",
+              "description": "Create an isolated task branch from the current HEAD.",
+              "status": "pending"
+            },
+            {
+              "step_id": "2",
+              "title": "Analyze Task",
+              "description": "Read the request and identify target files and constraints.",
+              "status": "pending"
+            },
+            {
+              "step_id": "3",
+              "title": "Implement Changes",
+              "description": "Apply code changes in the repository according to the task.",
+              "status": "pending"
+            },
+            {
+              "step_id": "4",
+              "title": "Run Baseline Checks",
+              "description": "Run baseline compile/test checks for regression safety.",
+              "status": "pending"
+            },
+            {
+              "step_id": "5",
+              "title": "Review Diff",
+              "description": "Review changed files and diff risk before committing.",
+              "status": "pending"
+            },
+            {
+              "step_id": "6",
+              "title": "Validate Scope",
+              "description": "Ensure modified files are inside the expected task scope before commit/push.",
+              "status": "pending"
+            },
+            {
+              "step_id": "7",
+              "title": "Repair After Failed Checks",
+              "description": "If checks fail, run one constrained Codex repair pass using current errors and diff summary.",
+              "status": "pending"
+            },
+            {
+              "step_id": "8",
+              "title": "Commit And Push",
+              "description": "Commit approved changes and push the task branch to origin.",
+              "status": "pending"
+            },
+            {
+              "step_id": "9",
+              "title": "Return Structured Result",
+              "description": "Return a structured run result with review, git actions, and recommendation.",
+              "status": "pending"
+            }
+          ]
+        },
+        "codex": {
+          "attempted": 0,
+          "ok": 1,
+          "success": 1,
+          "command": [],
+          "return_code": null,
+          "stdout": "",
+          "stderr": "",
+          "error_message": "codex_skipped",
+          "duration_seconds": 0.0
+        },
+        "tests": {
+          "attempted": 0,
+          "all_passed": 1,
+          "checks": []
+        },
+        "repair_attempt": {
+          "attempted": 0,
+          "ok": 0,
+          "prompt_summary": "",
+          "codex_result": {},
+          "review_result": {},
+          "test_result": {}
+        },
+        "loop_metadata": {
+          "initial_pass_ok": 0,
+          "repair_attempted": 0,
+          "repair_ok": 0,
+          "final_pass_ok": 0,
+          "loop_status": "hard_failure"
+        },
+        "scope_evaluation": {
+          "ok": 0,
+          "allowed_files": [],
+          "out_of_scope_files": [],
+          "blocked_files": [],
+          "summary": "queue_stopped_due_to_dirty_repo"
+        },
+        "pr_metadata": {
+          "suggested_title": "feat: replace placeholder pass statements in dev_orchestrator/reviewer.p",
+          "suggested_description": "Update task: replace placeholder pass statements in dev_orchestrator/reviewer.py\n- affected files: 0\n- main scope: no changed files detected\n- review status: attention required\n- risk status: No review risks detected.\n- scope status: No explicit scope constraint was triggered.",
+          "change_scope_summary": "No explicit scope constraint was triggered.",
+          "risk_summary": "No review risks detected."
+        },
+        "reviewer_narrative": {
+          "summary": "Reviewed 0 changed files. No explicit scope constraint was triggered. No blocked files detected. Review status: attention required. No review risks detected.",
+          "notable_changes": [],
+          "warnings": []
+        },
+        "review_result": {
+          "ok": 0,
+          "summary": "queue_stopped_due_to_dirty_repo",
+          "changed_files": [],
+          "risk_flags": [],
+          "allowed_files": [],
+          "out_of_scope_files": [],
+          "blocked_files": []
+        },
+        "git_action_result": {
+          "ok": 0,
+          "branch_name": "",
+          "commit_sha": "",
+          "stdout": "",
+          "stderr": "queue_stopped_due_to_dirty_repo"
+        },
+        "git": {
+          "is_git_repo": 1,
+          "branch": "pr-dev-orchestrator-v5",
+          "status_short": "## pr-dev-orchestrator-v5...origin/pr-dev-orchestrator-v5\n M dev_orchestrator/reviewer.py\n M dev_orchestrator/schemas.py\n M dev_orchestrator/supervisor.py\n M run_dev_agent.py\n?? dev_orchestrator/github_pr.py\n?? dev_orchestrator/queue_runner.py\n?? dev_orchestrator/task_discovery.py\n?? tasks/",
+          "diff_stat": "dev_orchestrator/reviewer.py   |  44 ++++\n dev_orchestrator/schemas.py    |  79 +++++++\n dev_orchestrator/supervisor.py | 487 +++++++++++++++++++++++++++++++++++++++++\n run_dev_agent.py               |  57 ++++-\n 4 files changed, 665 insertions(+), 2 deletions(-)",
+          "staged_diff_stat": "",
+          "changed_files": [
+            "dev_orchestrator/reviewer.py",
+            "dev_orchestrator/schemas.py",
+            "dev_orchestrator/supervisor.py",
+            "run_dev_agent.py"
+          ]
+        },
+        "branch_name": "",
+        "pr_url": "",
+        "auto_merge_attempted": 0,
+        "auto_merge_ok": 0,
+        "queue_index": 5,
+        "queue_total": 9,
+        "merge_recommendation": "failed",
+        "success": 0
+      }
+    },
+    {
+      "task": "replace placeholder pass statements in evengine/agents/quant_engine_adapter.py",
+      "status": "skipped",
+      "queue_index": 6,
+      "result": {
+        "task": "replace placeholder pass statements in evengine/agents/quant_engine_adapter.py",
+        "workdir": ".",
+        "started_at": "2026-03-06T16:09:15.537926+00:00",
+        "finished_at": "2026-03-06T16:09:15.537935+00:00",
+        "plan": {
+          "summary": "Execute task with Codex wrapper, local checks, and git summary.",
+          "steps": [
+            {
+              "step_id": "1",
+              "title": "Create Branch",
+              "description": "Create an isolated task branch from the current HEAD.",
+              "status": "pending"
+            },
+            {
+              "step_id": "2",
+              "title": "Analyze Task",
+              "description": "Read the request and identify target files and constraints.",
+              "status": "pending"
+            },
+            {
+              "step_id": "3",
+              "title": "Implement Changes",
+              "description": "Apply code changes in the repository according to the task.",
+              "status": "pending"
+            },
+            {
+              "step_id": "4",
+              "title": "Run Baseline Checks",
+              "description": "Run baseline compile/test checks for regression safety.",
+              "status": "pending"
+            },
+            {
+              "step_id": "5",
+              "title": "Review Diff",
+              "description": "Review changed files and diff risk before committing.",
+              "status": "pending"
+            },
+            {
+              "step_id": "6",
+              "title": "Validate Scope",
+              "description": "Ensure modified files are inside the expected task scope before commit/push.",
+              "status": "pending"
+            },
+            {
+              "step_id": "7",
+              "title": "Repair After Failed Checks",
+              "description": "If checks fail, run one constrained Codex repair pass using current errors and diff summary.",
+              "status": "pending"
+            },
+            {
+              "step_id": "8",
+              "title": "Commit And Push",
+              "description": "Commit approved changes and push the task branch to origin.",
+              "status": "pending"
+            },
+            {
+              "step_id": "9",
+              "title": "Return Structured Result",
+              "description": "Return a structured run result with review, git actions, and recommendation.",
+              "status": "pending"
+            }
+          ]
+        },
+        "codex": {
+          "attempted": 0,
+          "ok": 1,
+          "success": 1,
+          "command": [],
+          "return_code": null,
+          "stdout": "",
+          "stderr": "",
+          "error_message": "codex_skipped",
+          "duration_seconds": 0.0
+        },
+        "tests": {
+          "attempted": 0,
+          "all_passed": 1,
+          "checks": []
+        },
+        "repair_attempt": {
+          "attempted": 0,
+          "ok": 0,
+          "prompt_summary": "",
+          "codex_result": {},
+          "review_result": {},
+          "test_result": {}
+        },
+        "loop_metadata": {
+          "initial_pass_ok": 0,
+          "repair_attempted": 0,
+          "repair_ok": 0,
+          "final_pass_ok": 0,
+          "loop_status": "hard_failure"
+        },
+        "scope_evaluation": {
+          "ok": 0,
+          "allowed_files": [],
+          "out_of_scope_files": [],
+          "blocked_files": [],
+          "summary": "queue_stopped_due_to_dirty_repo"
+        },
+        "pr_metadata": {
+          "suggested_title": "feat: replace placeholder pass statements in evengine/agents/quant_engin",
+          "suggested_description": "Update task: replace placeholder pass statements in evengine/agents/quant_engine_adapter.py\n- affected files: 0\n- main scope: no changed files detected\n- review status: attention required\n- risk status: No review risks detected.\n- scope status: No explicit scope constraint was triggered.",
+          "change_scope_summary": "No explicit scope constraint was triggered.",
+          "risk_summary": "No review risks detected."
+        },
+        "reviewer_narrative": {
+          "summary": "Reviewed 0 changed files. No explicit scope constraint was triggered. No blocked files detected. Review status: attention required. No review risks detected.",
+          "notable_changes": [],
+          "warnings": []
+        },
+        "review_result": {
+          "ok": 0,
+          "summary": "queue_stopped_due_to_dirty_repo",
+          "changed_files": [],
+          "risk_flags": [],
+          "allowed_files": [],
+          "out_of_scope_files": [],
+          "blocked_files": []
+        },
+        "git_action_result": {
+          "ok": 0,
+          "branch_name": "",
+          "commit_sha": "",
+          "stdout": "",
+          "stderr": "queue_stopped_due_to_dirty_repo"
+        },
+        "git": {
+          "is_git_repo": 1,
+          "branch": "pr-dev-orchestrator-v5",
+          "status_short": "## pr-dev-orchestrator-v5...origin/pr-dev-orchestrator-v5\n M dev_orchestrator/reviewer.py\n M dev_orchestrator/schemas.py\n M dev_orchestrator/supervisor.py\n M run_dev_agent.py\n?? dev_orchestrator/github_pr.py\n?? dev_orchestrator/queue_runner.py\n?? dev_orchestrator/task_discovery.py\n?? tasks/",
+          "diff_stat": "dev_orchestrator/reviewer.py   |  44 ++++\n dev_orchestrator/schemas.py    |  79 +++++++\n dev_orchestrator/supervisor.py | 487 +++++++++++++++++++++++++++++++++++++++++\n run_dev_agent.py               |  57 ++++-\n 4 files changed, 665 insertions(+), 2 deletions(-)",
+          "staged_diff_stat": "",
+          "changed_files": [
+            "dev_orchestrator/reviewer.py",
+            "dev_orchestrator/schemas.py",
+            "dev_orchestrator/supervisor.py",
+            "run_dev_agent.py"
+          ]
+        },
+        "branch_name": "",
+        "pr_url": "",
+        "auto_merge_attempted": 0,
+        "auto_merge_ok": 0,
+        "queue_index": 6,
+        "queue_total": 9,
+        "merge_recommendation": "failed",
+        "success": 0
+      }
+    },
+    {
+      "task": "refactor oversized module dev_orchestrator/reviewer.py",
+      "status": "skipped",
+      "queue_index": 7,
+      "result": {
+        "task": "refactor oversized module dev_orchestrator/reviewer.py",
+        "workdir": ".",
+        "started_at": "2026-03-06T16:09:15.574656+00:00",
+        "finished_at": "2026-03-06T16:09:15.574658+00:00",
+        "plan": {
+          "summary": "Execute task with Codex wrapper, local checks, and git summary.",
+          "steps": [
+            {
+              "step_id": "1",
+              "title": "Create Branch",
+              "description": "Create an isolated task branch from the current HEAD.",
+              "status": "pending"
+            },
+            {
+              "step_id": "2",
+              "title": "Analyze Task",
+              "description": "Read the request and identify target files and constraints.",
+              "status": "pending"
+            },
+            {
+              "step_id": "3",
+              "title": "Implement Changes",
+              "description": "Apply code changes in the repository according to the task.",
+              "status": "pending"
+            },
+            {
+              "step_id": "4",
+              "title": "Run Baseline Checks",
+              "description": "Run baseline compile/test checks for regression safety.",
+              "status": "pending"
+            },
+            {
+              "step_id": "5",
+              "title": "Review Diff",
+              "description": "Review changed files and diff risk before committing.",
+              "status": "pending"
+            },
+            {
+              "step_id": "6",
+              "title": "Validate Scope",
+              "description": "Ensure modified files are inside the expected task scope before commit/push.",
+              "status": "pending"
+            },
+            {
+              "step_id": "7",
+              "title": "Repair After Failed Checks",
+              "description": "If checks fail, run one constrained Codex repair pass using current errors and diff summary.",
+              "status": "pending"
+            },
+            {
+              "step_id": "8",
+              "title": "Commit And Push",
+              "description": "Commit approved changes and push the task branch to origin.",
+              "status": "pending"
+            },
+            {
+              "step_id": "9",
+              "title": "Return Structured Result",
+              "description": "Return a structured run result with review, git actions, and recommendation.",
+              "status": "pending"
+            }
+          ]
+        },
+        "codex": {
+          "attempted": 0,
+          "ok": 1,
+          "success": 1,
+          "command": [],
+          "return_code": null,
+          "stdout": "",
+          "stderr": "",
+          "error_message": "codex_skipped",
+          "duration_seconds": 0.0
+        },
+        "tests": {
+          "attempted": 0,
+          "all_passed": 1,
+          "checks": []
+        },
+        "repair_attempt": {
+          "attempted": 0,
+          "ok": 0,
+          "prompt_summary": "",
+          "codex_result": {},
+          "review_result": {},
+          "test_result": {}
+        },
+        "loop_metadata": {
+          "initial_pass_ok": 0,
+          "repair_attempted": 0,
+          "repair_ok": 0,
+          "final_pass_ok": 0,
+          "loop_status": "hard_failure"
+        },
+        "scope_evaluation": {
+          "ok": 0,
+          "allowed_files": [],
+          "out_of_scope_files": [],
+          "blocked_files": [],
+          "summary": "queue_stopped_due_to_dirty_repo"
+        },
+        "pr_metadata": {
+          "suggested_title": "feat: refactor oversized module dev_orchestrator/reviewer.py",
+          "suggested_description": "Update task: refactor oversized module dev_orchestrator/reviewer.py\n- affected files: 0\n- main scope: no changed files detected\n- review status: attention required\n- risk status: No review risks detected.\n- scope status: No explicit scope constraint was triggered.",
+          "change_scope_summary": "No explicit scope constraint was triggered.",
+          "risk_summary": "No review risks detected."
+        },
+        "reviewer_narrative": {
+          "summary": "Reviewed 0 changed files. No explicit scope constraint was triggered. No blocked files detected. Review status: attention required. No review risks detected.",
+          "notable_changes": [],
+          "warnings": []
+        },
+        "review_result": {
+          "ok": 0,
+          "summary": "queue_stopped_due_to_dirty_repo",
+          "changed_files": [],
+          "risk_flags": [],
+          "allowed_files": [],
+          "out_of_scope_files": [],
+          "blocked_files": []
+        },
+        "git_action_result": {
+          "ok": 0,
+          "branch_name": "",
+          "commit_sha": "",
+          "stdout": "",
+          "stderr": "queue_stopped_due_to_dirty_repo"
+        },
+        "git": {
+          "is_git_repo": 1,
+          "branch": "pr-dev-orchestrator-v5",
+          "status_short": "## pr-dev-orchestrator-v5...origin/pr-dev-orchestrator-v5\n M dev_orchestrator/reviewer.py\n M dev_orchestrator/schemas.py\n M dev_orchestrator/supervisor.py\n M run_dev_agent.py\n?? dev_orchestrator/github_pr.py\n?? dev_orchestrator/queue_runner.py\n?? dev_orchestrator/task_discovery.py\n?? tasks/",
+          "diff_stat": "dev_orchestrator/reviewer.py   |  44 ++++\n dev_orchestrator/schemas.py    |  79 +++++++\n dev_orchestrator/supervisor.py | 487 +++++++++++++++++++++++++++++++++++++++++\n run_dev_agent.py               |  57 ++++-\n 4 files changed, 665 insertions(+), 2 deletions(-)",
+          "staged_diff_stat": "",
+          "changed_files": [
+            "dev_orchestrator/reviewer.py",
+            "dev_orchestrator/schemas.py",
+            "dev_orchestrator/supervisor.py",
+            "run_dev_agent.py"
+          ]
+        },
+        "branch_name": "",
+        "pr_url": "",
+        "auto_merge_attempted": 0,
+        "auto_merge_ok": 0,
+        "queue_index": 7,
+        "queue_total": 9,
+        "merge_recommendation": "failed",
+        "success": 0
+      }
+    },
+    {
+      "task": "refactor oversized module dev_orchestrator/supervisor.py",
+      "status": "skipped",
+      "queue_index": 8,
+      "result": {
+        "task": "refactor oversized module dev_orchestrator/supervisor.py",
+        "workdir": ".",
+        "started_at": "2026-03-06T16:09:15.611074+00:00",
+        "finished_at": "2026-03-06T16:09:15.611076+00:00",
+        "plan": {
+          "summary": "Execute task with Codex wrapper, local checks, and git summary.",
+          "steps": [
+            {
+              "step_id": "1",
+              "title": "Create Branch",
+              "description": "Create an isolated task branch from the current HEAD.",
+              "status": "pending"
+            },
+            {
+              "step_id": "2",
+              "title": "Analyze Task",
+              "description": "Read the request and identify target files and constraints.",
+              "status": "pending"
+            },
+            {
+              "step_id": "3",
+              "title": "Implement Changes",
+              "description": "Apply code changes in the repository according to the task.",
+              "status": "pending"
+            },
+            {
+              "step_id": "4",
+              "title": "Run Baseline Checks",
+              "description": "Run baseline compile/test checks for regression safety.",
+              "status": "pending"
+            },
+            {
+              "step_id": "5",
+              "title": "Review Diff",
+              "description": "Review changed files and diff risk before committing.",
+              "status": "pending"
+            },
+            {
+              "step_id": "6",
+              "title": "Validate Scope",
+              "description": "Ensure modified files are inside the expected task scope before commit/push.",
+              "status": "pending"
+            },
+            {
+              "step_id": "7",
+              "title": "Repair After Failed Checks",
+              "description": "If checks fail, run one constrained Codex repair pass using current errors and diff summary.",
+              "status": "pending"
+            },
+            {
+              "step_id": "8",
+              "title": "Commit And Push",
+              "description": "Commit approved changes and push the task branch to origin.",
+              "status": "pending"
+            },
+            {
+              "step_id": "9",
+              "title": "Return Structured Result",
+              "description": "Return a structured run result with review, git actions, and recommendation.",
+              "status": "pending"
+            }
+          ]
+        },
+        "codex": {
+          "attempted": 0,
+          "ok": 1,
+          "success": 1,
+          "command": [],
+          "return_code": null,
+          "stdout": "",
+          "stderr": "",
+          "error_message": "codex_skipped",
+          "duration_seconds": 0.0
+        },
+        "tests": {
+          "attempted": 0,
+          "all_passed": 1,
+          "checks": []
+        },
+        "repair_attempt": {
+          "attempted": 0,
+          "ok": 0,
+          "prompt_summary": "",
+          "codex_result": {},
+          "review_result": {},
+          "test_result": {}
+        },
+        "loop_metadata": {
+          "initial_pass_ok": 0,
+          "repair_attempted": 0,
+          "repair_ok": 0,
+          "final_pass_ok": 0,
+          "loop_status": "hard_failure"
+        },
+        "scope_evaluation": {
+          "ok": 0,
+          "allowed_files": [],
+          "out_of_scope_files": [],
+          "blocked_files": [],
+          "summary": "queue_stopped_due_to_dirty_repo"
+        },
+        "pr_metadata": {
+          "suggested_title": "feat: refactor oversized module dev_orchestrator/supervisor.py",
+          "suggested_description": "Update task: refactor oversized module dev_orchestrator/supervisor.py\n- affected files: 0\n- main scope: no changed files detected\n- review status: attention required\n- risk status: No review risks detected.\n- scope status: No explicit scope constraint was triggered.",
+          "change_scope_summary": "No explicit scope constraint was triggered.",
+          "risk_summary": "No review risks detected."
+        },
+        "reviewer_narrative": {
+          "summary": "Reviewed 0 changed files. No explicit scope constraint was triggered. No blocked files detected. Review status: attention required. No review risks detected.",
+          "notable_changes": [],
+          "warnings": []
+        },
+        "review_result": {
+          "ok": 0,
+          "summary": "queue_stopped_due_to_dirty_repo",
+          "changed_files": [],
+          "risk_flags": [],
+          "allowed_files": [],
+          "out_of_scope_files": [],
+          "blocked_files": []
+        },
+        "git_action_result": {
+          "ok": 0,
+          "branch_name": "",
+          "commit_sha": "",
+          "stdout": "",
+          "stderr": "queue_stopped_due_to_dirty_repo"
+        },
+        "git": {
+          "is_git_repo": 1,
+          "branch": "pr-dev-orchestrator-v5",
+          "status_short": "## pr-dev-orchestrator-v5...origin/pr-dev-orchestrator-v5\n M dev_orchestrator/reviewer.py\n M dev_orchestrator/schemas.py\n M dev_orchestrator/supervisor.py\n M run_dev_agent.py\n?? dev_orchestrator/github_pr.py\n?? dev_orchestrator/queue_runner.py\n?? dev_orchestrator/task_discovery.py\n?? tasks/",
+          "diff_stat": "dev_orchestrator/reviewer.py   |  44 ++++\n dev_orchestrator/schemas.py    |  79 +++++++\n dev_orchestrator/supervisor.py | 487 +++++++++++++++++++++++++++++++++++++++++\n run_dev_agent.py               |  57 ++++-\n 4 files changed, 665 insertions(+), 2 deletions(-)",
+          "staged_diff_stat": "",
+          "changed_files": [
+            "dev_orchestrator/reviewer.py",
+            "dev_orchestrator/schemas.py",
+            "dev_orchestrator/supervisor.py",
+            "run_dev_agent.py"
+          ]
+        },
+        "branch_name": "",
+        "pr_url": "",
+        "auto_merge_attempted": 0,
+        "auto_merge_ok": 0,
+        "queue_index": 8,
+        "queue_total": 9,
+        "merge_recommendation": "failed",
+        "success": 0
+      }
+    },
+    {
+      "task": "refactor oversized module evengine/agents/quant_engine_adapter.py",
+      "status": "skipped",
+      "queue_index": 9,
+      "result": {
+        "task": "refactor oversized module evengine/agents/quant_engine_adapter.py",
+        "workdir": ".",
+        "started_at": "2026-03-06T16:09:15.647303+00:00",
+        "finished_at": "2026-03-06T16:09:15.647305+00:00",
+        "plan": {
+          "summary": "Execute task with Codex wrapper, local checks, and git summary.",
+          "steps": [
+            {
+              "step_id": "1",
+              "title": "Create Branch",
+              "description": "Create an isolated task branch from the current HEAD.",
+              "status": "pending"
+            },
+            {
+              "step_id": "2",
+              "title": "Analyze Task",
+              "description": "Read the request and identify target files and constraints.",
+              "status": "pending"
+            },
+            {
+              "step_id": "3",
+              "title": "Implement Changes",
+              "description": "Apply code changes in the repository according to the task.",
+              "status": "pending"
+            },
+            {
+              "step_id": "4",
+              "title": "Run Baseline Checks",
+              "description": "Run baseline compile/test checks for regression safety.",
+              "status": "pending"
+            },
+            {
+              "step_id": "5",
+              "title": "Review Diff",
+              "description": "Review changed files and diff risk before committing.",
+              "status": "pending"
+            },
+            {
+              "step_id": "6",
+              "title": "Validate Scope",
+              "description": "Ensure modified files are inside the expected task scope before commit/push.",
+              "status": "pending"
+            },
+            {
+              "step_id": "7",
+              "title": "Repair After Failed Checks",
+              "description": "If checks fail, run one constrained Codex repair pass using current errors and diff summary.",
+              "status": "pending"
+            },
+            {
+              "step_id": "8",
+              "title": "Commit And Push",
+              "description": "Commit approved changes and push the task branch to origin.",
+              "status": "pending"
+            },
+            {
+              "step_id": "9",
+              "title": "Return Structured Result",
+              "description": "Return a structured run result with review, git actions, and recommendation.",
+              "status": "pending"
+            }
+          ]
+        },
+        "codex": {
+          "attempted": 0,
+          "ok": 1,
+          "success": 1,
+          "command": [],
+          "return_code": null,
+          "stdout": "",
+          "stderr": "",
+          "error_message": "codex_skipped",
+          "duration_seconds": 0.0
+        },
+        "tests": {
+          "attempted": 0,
+          "all_passed": 1,
+          "checks": []
+        },
+        "repair_attempt": {
+          "attempted": 0,
+          "ok": 0,
+          "prompt_summary": "",
+          "codex_result": {},
+          "review_result": {},
+          "test_result": {}
+        },
+        "loop_metadata": {
+          "initial_pass_ok": 0,
+          "repair_attempted": 0,
+          "repair_ok": 0,
+          "final_pass_ok": 0,
+          "loop_status": "hard_failure"
+        },
+        "scope_evaluation": {
+          "ok": 0,
+          "allowed_files": [],
+          "out_of_scope_files": [],
+          "blocked_files": [],
+          "summary": "queue_stopped_due_to_dirty_repo"
+        },
+        "pr_metadata": {
+          "suggested_title": "feat: refactor oversized module evengine/agents/quant_engine_adapter.py",
+          "suggested_description": "Update task: refactor oversized module evengine/agents/quant_engine_adapter.py\n- affected files: 0\n- main scope: no changed files detected\n- review status: attention required\n- risk status: No review risks detected.\n- scope status: No explicit scope constraint was triggered.",
+          "change_scope_summary": "No explicit scope constraint was triggered.",
+          "risk_summary": "No review risks detected."
+        },
+        "reviewer_narrative": {
+          "summary": "Reviewed 0 changed files. No explicit scope constraint was triggered. No blocked files detected. Review status: attention required. No review risks detected.",
+          "notable_changes": [],
+          "warnings": []
+        },
+        "review_result": {
+          "ok": 0,
+          "summary": "queue_stopped_due_to_dirty_repo",
+          "changed_files": [],
+          "risk_flags": [],
+          "allowed_files": [],
+          "out_of_scope_files": [],
+          "blocked_files": []
+        },
+        "git_action_result": {
+          "ok": 0,
+          "branch_name": "",
+          "commit_sha": "",
+          "stdout": "",
+          "stderr": "queue_stopped_due_to_dirty_repo"
+        },
+        "git": {
+          "is_git_repo": 1,
+          "branch": "pr-dev-orchestrator-v5",
+          "status_short": "## pr-dev-orchestrator-v5...origin/pr-dev-orchestrator-v5\n M dev_orchestrator/reviewer.py\n M dev_orchestrator/schemas.py\n M dev_orchestrator/supervisor.py\n M run_dev_agent.py\n?? dev_orchestrator/github_pr.py\n?? dev_orchestrator/queue_runner.py\n?? dev_orchestrator/task_discovery.py\n?? tasks/",
+          "diff_stat": "dev_orchestrator/reviewer.py   |  44 ++++\n dev_orchestrator/schemas.py    |  79 +++++++\n dev_orchestrator/supervisor.py | 487 +++++++++++++++++++++++++++++++++++++++++\n run_dev_agent.py               |  57 ++++-\n 4 files changed, 665 insertions(+), 2 deletions(-)",
+          "staged_diff_stat": "",
+          "changed_files": [
+            "dev_orchestrator/reviewer.py",
+            "dev_orchestrator/schemas.py",
+            "dev_orchestrator/supervisor.py",
+            "run_dev_agent.py"
+          ]
+        },
+        "branch_name": "",
+        "pr_url": "",
+        "auto_merge_attempted": 0,
+        "auto_merge_ok": 0,
+        "queue_index": 9,
+        "queue_total": 9,
+        "merge_recommendation": "failed",
+        "success": 0
+      }
+    }
+  ]
+}
