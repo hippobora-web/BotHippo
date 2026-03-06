@@ -48,6 +48,7 @@ def run_codex_prompt(
     if not command:
         return CodexRunResult(
             attempted=1,
+            ok=0,
             success=0,
             command=[],
             error_message="empty_codex_command",
@@ -68,6 +69,7 @@ def run_codex_prompt(
         success: int = 1 if completed.returncode == 0 else 0
         return CodexRunResult(
             attempted=1,
+            ok=success,
             success=success,
             command=command,
             return_code=completed.returncode,
@@ -79,6 +81,7 @@ def run_codex_prompt(
         duration = time.monotonic() - started
         return CodexRunResult(
             attempted=1,
+            ok=0,
             success=0,
             command=command,
             error_message="codex_command_not_found",
@@ -88,6 +91,7 @@ def run_codex_prompt(
         duration = time.monotonic() - started
         return CodexRunResult(
             attempted=1,
+            ok=0,
             success=0,
             command=command,
             error_message="codex_command_timeout",
@@ -99,9 +103,9 @@ def run_codex_prompt(
         duration = time.monotonic() - started
         return CodexRunResult(
             attempted=1,
+            ok=0,
             success=0,
             command=command,
             error_message=f"codex_command_failed:{exc.__class__.__name__}",
             duration_seconds=duration,
         )
-

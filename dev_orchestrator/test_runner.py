@@ -40,10 +40,12 @@ def _has_pytest_targets(workdir: str) -> int:
 def _default_check_commands(workdir: str) -> list[tuple[str, str]]:
     """Build default local checks list."""
 
-    checks: list[tuple[str, str]] = [("python_compile", "python3 -m compileall -q .")]
     if _has_pytest_targets(workdir) == 1:
-        checks.append(("pytest", "pytest -q"))
-    return checks
+        return [
+            ("pytest", "pytest -q"),
+            ("python_compile", "python3 -m compileall -q ."),
+        ]
+    return [("python_compile", "python3 -m compileall -q .")]
 
 
 def _run_shell_check(*, name: str, command: str, workdir: str) -> TestCheckResult:
@@ -101,4 +103,3 @@ def run_local_checks(*, workdir: str, commands: list[str] | None = None) -> Test
         all_passed=all_passed,
         checks=check_results,
     )
-

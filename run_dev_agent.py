@@ -13,7 +13,7 @@ def _parse_args() -> argparse.Namespace:
     """Parse command-line arguments for the development orchestrator."""
 
     parser = argparse.ArgumentParser(description="Run local dev orchestrator workflow.")
-    parser.add_argument("task", nargs="+", help="Development task description.")
+    parser.add_argument("task", nargs="*", help="Development task description.")
     parser.add_argument(
         "--workdir",
         default=".",
@@ -64,8 +64,12 @@ def main() -> int:
     """Run orchestrator workflow from CLI and print structured JSON output."""
 
     args = _parse_args()
+    task_text: str = " ".join(args.task).strip()
+    if not task_text:
+        task_text = input("Task goal: ").strip()
+
     request = DevTaskRequest(
-        task=" ".join(args.task).strip(),
+        task=task_text,
         workdir=args.workdir,
         run_codex=0 if args.no_codex else 1,
         run_tests=0 if args.no_tests else 1,
@@ -81,4 +85,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
-

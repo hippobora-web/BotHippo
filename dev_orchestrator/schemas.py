@@ -27,6 +27,7 @@ class CodexRunResult(BaseModel):
     """Outcome of the Codex subprocess execution."""
 
     attempted: int
+    ok: int
     success: int
     command: list[str] = Field(default_factory=list)
     return_code: Optional[int] = None
@@ -54,6 +55,25 @@ class TestRunResult(BaseModel):
     attempted: int
     all_passed: int
     checks: list[TestCheckResult] = Field(default_factory=list)
+
+
+class ReviewResult(BaseModel):
+    """Deterministic review result based on git changes."""
+
+    ok: int
+    summary: str
+    changed_files: list[str] = Field(default_factory=list)
+    risk_flags: list[str] = Field(default_factory=list)
+
+
+class GitActionResult(BaseModel):
+    """Result of a git action such as branch, commit, or push."""
+
+    ok: int
+    branch_name: str
+    commit_sha: str = ""
+    stdout: str = ""
+    stderr: str = ""
 
 
 class GitSummary(BaseModel):
@@ -90,5 +110,9 @@ class DevRunResult(BaseModel):
     plan: ExecutionPlan
     codex: CodexRunResult
     tests: TestRunResult
+    review_result: dict
+    git_action_result: dict
     git: GitSummary
+    branch_name: str
+    merge_recommendation: str
     success: int

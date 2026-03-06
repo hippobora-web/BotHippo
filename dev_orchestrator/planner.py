@@ -12,11 +12,16 @@ def build_execution_plan(task: str) -> ExecutionPlan:
     plan_steps: list[PlanStep] = [
         PlanStep(
             step_id="1",
+            title="Create Branch",
+            description="Create an isolated task branch from the current HEAD.",
+        ),
+        PlanStep(
+            step_id="2",
             title="Analyze Task",
             description="Read the request and identify target files and constraints.",
         ),
         PlanStep(
-            step_id="2",
+            step_id="3",
             title="Implement Changes",
             description="Apply code changes in the repository according to the task.",
         ),
@@ -25,7 +30,7 @@ def build_execution_plan(task: str) -> ExecutionPlan:
     if "test" in task_lower or "check" in task_lower or "validate" in task_lower:
         plan_steps.append(
             PlanStep(
-                step_id="3",
+                step_id="4",
                 title="Run Verification",
                 description="Execute local checks/tests and gather outputs.",
             )
@@ -33,7 +38,7 @@ def build_execution_plan(task: str) -> ExecutionPlan:
     else:
         plan_steps.append(
             PlanStep(
-                step_id="3",
+                step_id="4",
                 title="Run Baseline Checks",
                 description="Run baseline compile/test checks for regression safety.",
             )
@@ -42,14 +47,19 @@ def build_execution_plan(task: str) -> ExecutionPlan:
     plan_steps.extend(
         [
             PlanStep(
-                step_id="4",
-                title="Summarize Git Changes",
-                description="Collect git status and diff summary of modifications.",
+                step_id="5",
+                title="Review Diff",
+                description="Review changed files and diff risk before committing.",
             ),
             PlanStep(
-                step_id="5",
+                step_id="6",
+                title="Commit And Push",
+                description="Commit approved changes and push the task branch to origin.",
+            ),
+            PlanStep(
+                step_id="7",
                 title="Return Structured Result",
-                description="Return a structured run result with plan, checks, and git summary.",
+                description="Return a structured run result with review, git actions, and recommendation.",
             ),
         ]
     )
@@ -73,9 +83,11 @@ def build_codex_prompt(task: str, plan: ExecutionPlan) -> str:
         f"Task:\n{task}\n\n"
         f"Execution Plan:\n{joined_steps}\n\n"
         "Constraints:\n"
+        "- Inspect the repository first before editing.\n"
+        "- Modify only files relevant to the task.\n"
+        "- Avoid unrelated changes.\n"
         "- Keep changes minimal-risk and modular.\n"
         "- Run relevant local checks.\n"
         "- Summarize git status/diff at the end.\n"
-        "- Do not auto-push or auto-merge.\n"
+        "- Do not auto-merge.\n"
     )
-
