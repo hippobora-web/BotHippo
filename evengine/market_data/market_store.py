@@ -95,3 +95,22 @@ def load_snapshots() -> list[MarketSnapshot]:
                 payload: dict[str, Any] = json.loads(stripped)
                 snapshots.append(deserialize_snapshot(payload))
     return snapshots
+
+
+def load_snapshots_for_market(
+    *,
+    event_id: str | None = None,
+    market_id: str | None = None,
+    source: str | None = None,
+) -> list[MarketSnapshot]:
+    """Load stored snapshots and filter them for one market key."""
+
+    snapshots: list[MarketSnapshot] = load_snapshots()
+    filtered: list[MarketSnapshot] = [
+        snapshot
+        for snapshot in snapshots
+        if (event_id is None or snapshot.event_id == event_id)
+        and (market_id is None or snapshot.market_id == market_id)
+        and (source is None or snapshot.source == source)
+    ]
+    return sorted(filtered, key=lambda snapshot: snapshot.collected_at)
