@@ -83,6 +83,31 @@ def _run_shell_check(*, name: str, command: str, workdir: str) -> TestCheckResul
         )
 
 
+def summarize_failed_checks(test_result: TestRunResult) -> str:
+    """Return a deterministic text summary for failing checks only."""
+
+    failing_checks: list[TestCheckResult] = [
+        check for check in test_result.checks if check.success == 0
+    ]
+    if not failing_checks:
+        return "all checks passed"
+
+    summary_parts: list[str] = []
+    for check in failing_checks:
+        check_lines: list[str] = [
+            f"name: {check.name}",
+            f"command: {check.command}",
+            f"return_code: {check.return_code}",
+        ]
+        if check.stderr:
+            check_lines.append(f"stderr: {_trim_output(check.stderr, limit=2000)}")
+        if check.stdout:
+            check_lines.append(f"stdout: {_trim_output(check.stdout, limit=2000)}")
+        summary_parts.append("\n".join(check_lines))
+
+    return "\n\n".join(summary_parts)
+
+
 def run_local_checks(*, workdir: str, commands: list[str] | None = None) -> TestRunResult:
     """Run local checks and return an aggregated structured result."""
 

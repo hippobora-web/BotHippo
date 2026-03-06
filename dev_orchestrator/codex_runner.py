@@ -34,6 +34,29 @@ def _build_command(command_template: str, prompt: str, prompt_via_stdin: int) ->
     return [*command_parts, prompt]
 
 
+def build_repair_prompt(
+    *,
+    original_task: str,
+    review_summary: str,
+    failing_checks_summary: str,
+) -> str:
+    """Build a deterministic prompt for one constrained repair pass."""
+
+    return (
+        "You are Codex operating in a local repository.\n"
+        "Run one constrained repair pass.\n\n"
+        f"Original task:\n{original_task}\n\n"
+        f"Current diff/review summary:\n{review_summary}\n\n"
+        f"Failing checks summary:\n{failing_checks_summary}\n\n"
+        "Constraints:\n"
+        "- Make the smallest possible fix.\n"
+        "- Only address the reported failures.\n"
+        "- Avoid unrelated changes.\n"
+        "- Inspect the current repository state before editing.\n"
+        "- Keep implementation minimal-risk and modular.\n"
+    )
+
+
 def run_codex_prompt(
     *,
     prompt: str,

@@ -57,6 +57,62 @@ class TestRunResult(BaseModel):
     checks: list[TestCheckResult] = Field(default_factory=list)
 
 
+class RepairAttemptResult(BaseModel):
+    """Structured result of a single constrained repair attempt."""
+
+    attempted: int
+    ok: int
+    prompt_summary: str = ""
+    codex_result: dict = Field(default_factory=dict)
+    review_result: dict = Field(default_factory=dict)
+    test_result: dict = Field(default_factory=dict)
+
+
+class LoopMetadata(BaseModel):
+    """Metadata describing the self-repair loop outcome."""
+
+    initial_pass_ok: int
+    repair_attempted: int
+    repair_ok: int
+    final_pass_ok: int
+    loop_status: str
+
+
+class ScopeRule(BaseModel):
+    """Deterministic scope rule for a task."""
+
+    label: str
+    allowed_prefixes: list[str] = Field(default_factory=list)
+    blocked_prefixes: list[str] = Field(default_factory=list)
+
+
+class ScopeEvaluation(BaseModel):
+    """Evaluation of changed files against a task scope rule."""
+
+    ok: int
+    allowed_files: list[str] = Field(default_factory=list)
+    out_of_scope_files: list[str] = Field(default_factory=list)
+    blocked_files: list[str] = Field(default_factory=list)
+    summary: str = ""
+
+
+class ReviewerNarrative(BaseModel):
+    """Human-readable deterministic reviewer summary."""
+
+    summary: str = ""
+    notable_changes: list[str] = Field(default_factory=list)
+    warnings: list[str] = Field(default_factory=list)
+
+
+class PRMetadata(BaseModel):
+    """Suggested PR metadata derived deterministically from task and review."""
+
+    suggested_title: str = ""
+    suggested_description: str = ""
+    change_scope_summary: str = ""
+    risk_summary: str = ""
+
+
 class ReviewResult(BaseModel):
     """Deterministic review result based on git changes."""
 
@@ -64,6 +120,9 @@ class ReviewResult(BaseModel):
     summary: str
     changed_files: list[str] = Field(default_factory=list)
     risk_flags: list[str] = Field(default_factory=list)
+    allowed_files: list[str] = Field(default_factory=list)
+    out_of_scope_files: list[str] = Field(default_factory=list)
+    blocked_files: list[str] = Field(default_factory=list)
 
 
 class GitActionResult(BaseModel):
@@ -110,6 +169,11 @@ class DevRunResult(BaseModel):
     plan: ExecutionPlan
     codex: CodexRunResult
     tests: TestRunResult
+    repair_attempt: dict
+    loop_metadata: dict
+    scope_evaluation: dict = Field(default_factory=dict)
+    pr_metadata: dict = Field(default_factory=dict)
+    reviewer_narrative: dict = Field(default_factory=dict)
     review_result: dict
     git_action_result: dict
     git: GitSummary

@@ -53,11 +53,21 @@ def build_execution_plan(task: str) -> ExecutionPlan:
             ),
             PlanStep(
                 step_id="6",
+                title="Validate Scope",
+                description="Ensure modified files are inside the expected task scope before commit/push.",
+            ),
+            PlanStep(
+                step_id="7",
+                title="Repair After Failed Checks",
+                description="If checks fail, run one constrained Codex repair pass using current errors and diff summary.",
+            ),
+            PlanStep(
+                step_id="8",
                 title="Commit And Push",
                 description="Commit approved changes and push the task branch to origin.",
             ),
             PlanStep(
-                step_id="7",
+                step_id="9",
                 title="Return Structured Result",
                 description="Return a structured run result with review, git actions, and recommendation.",
             ),
