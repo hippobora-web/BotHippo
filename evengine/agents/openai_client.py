@@ -1,4 +1,4 @@
-"""Minimal Perplexity API client wrapper."""
+"""Minimal OpenAI API client wrapper for qualitative analysis."""
 
 from __future__ import annotations
 
@@ -9,23 +9,23 @@ import requests
 
 from evengine.agents.config import (
     DEFAULT_HTTP_TIMEOUT_SECONDS,
-    PERPLEXITY_API_URL,
-    PERPLEXITY_MODEL,
+    OPENAI_API_URL,
+    OPENAI_MODEL,
 )
 from evengine.agents.errors import ConfigurationError, ExternalAPIError
 
 
 def _get_api_key() -> str:
-    """Return Perplexity API key from environment."""
+    """Return OpenAI API key from environment."""
 
-    api_key: str | None = os.getenv("PERPLEXITY_API_KEY")
+    api_key: str | None = os.getenv("OPENAI_API_KEY")
     if not api_key:
-        raise ConfigurationError("PERPLEXITY_API_KEY environment variable is required")
+        raise ConfigurationError("OPENAI_API_KEY environment variable is required")
     return api_key
 
 
-def fetch_event_research(prompt: str) -> str:
-    """Fetch raw research text for an event from Perplexity."""
+def fetch_analysis(prompt: str) -> str:
+    """Fetch raw analysis text from OpenAI chat completions."""
 
     api_key: str = _get_api_key()
     headers: dict[str, str] = {
@@ -33,9 +33,9 @@ def fetch_event_research(prompt: str) -> str:
         "Content-Type": "application/json",
     }
     payload: dict[str, Any] = {
-        "model": PERPLEXITY_MODEL,
+        "model": OPENAI_MODEL,
         "messages": [
-            {"role": "system", "content": "You are a precise sports research assistant."},
+            {"role": "system", "content": "You are a rigorous sports betting analyst."},
             {"role": "user", "content": prompt},
         ],
         "temperature": 0,
@@ -43,7 +43,7 @@ def fetch_event_research(prompt: str) -> str:
 
     try:
         response: requests.Response = requests.post(
-            PERPLEXITY_API_URL,
+            OPENAI_API_URL,
             headers=headers,
             json=payload,
             timeout=DEFAULT_HTTP_TIMEOUT_SECONDS,
@@ -51,16 +51,16 @@ def fetch_event_research(prompt: str) -> str:
         response.raise_for_status()
         data: dict[str, Any] = response.json()
     except requests.RequestException as exc:
-        raise ExternalAPIError("Perplexity API request failed") from exc
+        raise ExternalAPIError("OpenAI API request failed") from exc
     except ValueError as exc:
-        raise ExternalAPIError("Perplexity API returned invalid JSON") from exc
+        raise ExternalAPIError("OpenAI API returned invalid JSON") from exc
 
     try:
         content: Any = data["choices"][0]["message"]["content"]
     except (KeyError, IndexError, TypeError) as exc:
-        raise ExternalAPIError("Unexpected response format from Perplexity API") from exc
+        raise ExternalAPIError("Unexpected response format from OpenAI API") from exc
 
     if not isinstance(content, str):
-        raise ExternalAPIError("Perplexity response content is not text")
+        raise ExternalAPIError("OpenAI response content is not text")
 
     return content.strip()
