@@ -1,5 +1,7 @@
 # EVEngine
 
+[![CI](https://github.com/hippobora-web/BotHippo/actions/workflows/ci.yml/badge.svg)](https://github.com/hippobora-web/BotHippo/actions/workflows/ci.yml)
+
 EVEngine is a deterministic research prototype for event-market data collection, signal generation, risk gating, backtesting, and paper-trading experiments.
 
 ## Disclaimer
@@ -7,6 +9,33 @@ EVEngine is a deterministic research prototype for event-market data collection,
 This repository is for research and prototyping only. It is not production-ready and is not suitable for unattended live trading, exchange connectivity, or real-money use.
 
 Recent hardening work improved validation, exposure controls, and settlement handling, but the repository still lacks the operational controls required for production deployment.
+
+## Installation
+
+EVEngine currently targets Python 3.9 and uses a minimal `pyproject.toml`-based setup.
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -e .
+```
+
+## Quick Start
+
+Run the current regression tests:
+
+```bash
+python -m unittest discover -s tests
+```
+
+Run the deterministic local smoke path using the built-in mock adapter:
+
+```bash
+python -m evengine.cli.collect_market_data --adapter mock --n 1
+```
+
+The smoke command writes a local snapshot under `data/market_data/snapshots/`.
 
 ## Architecture
 
@@ -40,23 +69,17 @@ Recent hardening work improved validation, exposure controls, and settlement han
 - Compatibility support for the legacy `pipeline/` entrypoints through the shared decision core.
 - Basic unit regression coverage for recent safety hardening.
 
-## Running Tests
-
-```bash
-python3 -m unittest discover -s tests
-```
-
 ## Known Limitations
 
 - The live anomaly path still relies on a simple rolling market-derived reference; it is a safer prototype implementation, not a calibrated external pricing model.
 - There is no order manager, exchange connector, persistent position store, or operational monitoring stack.
 - Snapshot persistence is file-based JSONL and is not suitable for concurrent or large-scale ingestion.
 - Automated test coverage exists but remains narrow and focused on the recent remediation pass.
-- No CI workflow is committed in the repository yet, so there is no public test badge to expose.
+- CI coverage is intentionally minimal and currently validates only installation, unit tests, and a deterministic local smoke path.
 
 ## Roadmap
 
-- Add reproducible Python project metadata and a minimal CI workflow for test execution.
+- Lock and document a contributor workflow beyond the current minimal editable-install setup.
 - Introduce explicit external reference/model inputs for live-path evaluation instead of relying on rolling market-only projections.
 - Add persistent position and order-state management with replayable state transitions.
 - Replace JSONL snapshot storage with a durable backend appropriate for concurrent ingestion and replay.
