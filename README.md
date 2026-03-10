@@ -37,6 +37,15 @@ python -m evengine.cli.collect_market_data --adapter mock --n 1
 
 The smoke command writes a local snapshot under `data/market_data/snapshots/`.
 
+### Current Test Coverage
+
+The current regression tests validate a narrow but high-value subset of invariants:
+
+- chronological observation enrichment without lookahead
+- strict rejection when critical identifiers or decision inputs are missing
+- exposure-cap enforcement at decision time
+- odds-aware settled PnL and no realized PnL for unresolved trades
+
 ## Architecture
 
 ### Main Modules
