@@ -1,8 +1,8 @@
-# EVEngine
+# BotHippo
 
 [![CI](https://github.com/hippobora-web/BotHippo/actions/workflows/ci.yml/badge.svg)](https://github.com/hippobora-web/BotHippo/actions/workflows/ci.yml)
 
-EVEngine is a deterministic research prototype for event-market data collection, signal generation, risk gating, backtesting, and paper-trading experiments.
+BotHippo packages EVEngine, a deterministic research prototype for event-market data collection, signal generation, risk gating, backtesting, and paper-trading experiments. The Python package name remains `evengine`.
 
 ## Disclaimer
 
@@ -45,6 +45,7 @@ The current regression tests validate a narrow but high-value subset of invarian
 - strict rejection when critical identifiers or decision inputs are missing
 - exposure-cap enforcement at decision time
 - odds-aware settled PnL and no realized PnL for unresolved trades
+- JSONL snapshot round-trips, explicit malformed-record failure, and basic orchestrator state-sequencing behavior
 
 ## Architecture
 
