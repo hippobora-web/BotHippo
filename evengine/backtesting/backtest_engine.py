@@ -18,6 +18,7 @@ def _to_trade_decision(decision: StrategyDecision) -> TradeDecision:
         decision=decision.decision,
         size=decision.size,
         edge=decision.edge,
+        entry_probability=decision.market_implied_probability,
     )
 
 

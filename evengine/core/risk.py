@@ -14,12 +14,12 @@ def compute_recommended_size(
 ) -> float:
     """Compute a deterministic recommended position size from signal quality."""
 
-    if edge is None or edge <= 0.0:
+    if edge is None or edge <= 0.0 or confidence is None or liquidity_score is None:
         return 0.0
 
     size: float = edge
-    size *= 1.0 if confidence is None else confidence
-    size *= 1.0 if liquidity_score is None else liquidity_score
+    size *= confidence
+    size *= liquidity_score
     return max(0.0, min(size, max_position_size))
 
 
@@ -44,18 +44,6 @@ def build_risk_decision(
             reasons=reasons,
         )
 
-    if current_exposure >= max_total_exposure:
-        reasons.append(
-            f"current exposure {current_exposure:.4f} exceeds max_total_exposure {max_total_exposure:.4f}"
-        )
-        return RiskDecision(
-            asset_class=signal.asset_class,
-            approved=False,
-            final_verdict="reject",
-            recommended_size=0.0,
-            reasons=reasons,
-        )
-
     recommended_size: float = compute_recommended_size(
         edge=signal.edge,
         confidence=signal.confidence,
@@ -64,6 +52,20 @@ def build_risk_decision(
     )
     if recommended_size <= 0.0:
         reasons.append("recommended size is zero after risk sizing")
+        return RiskDecision(
+            asset_class=signal.asset_class,
+            approved=False,
+            final_verdict="reject",
+            recommended_size=0.0,
+            reasons=reasons,
+        )
+
+    proposed_exposure: float = current_exposure + recommended_size
+    if proposed_exposure > max_total_exposure:
+        reasons.append(
+            "current exposure plus proposed size exceeds max_total_exposure "
+            f"({current_exposure:.4f} + {recommended_size:.4f} > {max_total_exposure:.4f})"
+        )
         return RiskDecision(
             asset_class=signal.asset_class,
             approved=False,
@@ -100,5 +102,6 @@ def build_trade_intent(
         approved=risk_decision.approved,
         size=risk_decision.recommended_size,
         edge=signal.edge,
+        market_implied_probability=signal.market_implied_probability,
         reasons=reasons,
     )

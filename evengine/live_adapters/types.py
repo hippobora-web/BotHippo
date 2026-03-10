@@ -12,3 +12,8 @@ class RawMarketPrice:
     asset_class: str
     probability: float
     timestamp: float
+    source: str | None = None
+    event_id: str | None = None
+    market_id: str | None = None
+    selection_id: str | None = None
+    settled_outcome: bool | None = None

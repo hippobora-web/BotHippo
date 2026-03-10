@@ -13,6 +13,7 @@ class TradeDecision:
     decision: str
     size: float
     edge: float | None
+    entry_probability: float | None = None
 
 
 @dataclass
@@ -24,3 +25,4 @@ class TradeResult:
     entry_probability: float | None
     outcome: bool
     pnl: float
+    entry_odds: float | None = None

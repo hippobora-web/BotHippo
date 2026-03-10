@@ -19,6 +19,12 @@ def detect_probability_anomaly(obs: MarketObservation) -> MarketAnomaly | None:
         reference_probability=obs.reference_probability,
         anomaly_score=difference,
         reason="probability divergence",
+        liquidity_score=obs.liquidity_score,
+        source=obs.source,
+        event_id=obs.event_id,
+        market_id=obs.market_id,
+        selection_id=obs.selection_id,
+        settled_outcome=obs.settled_outcome,
     )
 
 
@@ -39,18 +45,20 @@ def scan_market_observations(
 
 def convert_anomaly_to_decision_input(
     anomaly: MarketAnomaly,
+    *,
+    current_exposure: float = 0.0,
 ) -> DecisionInput:
     """Convert a market anomaly into a shared-core decision input."""
 
     return DecisionInput(
         asset_class=anomaly.asset_class,
-        source=None,
-        event_id=None,
-        market_id=None,
-        selection_id=None,
+        source=anomaly.source,
+        event_id=anomaly.event_id,
+        market_id=anomaly.market_id,
+        selection_id=anomaly.selection_id,
         market_implied_probability=anomaly.market_probability,
         model_probability=anomaly.reference_probability,
         confidence=anomaly.anomaly_score,
-        liquidity_score=None,
-        current_exposure=0.0,
+        liquidity_score=anomaly.liquidity_score,
+        current_exposure=current_exposure,
     )

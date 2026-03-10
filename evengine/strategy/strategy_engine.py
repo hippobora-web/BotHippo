@@ -18,6 +18,10 @@ def run_strategy_row(inp: StrategyInput) -> StrategyDecision:
             confidence=inp.confidence,
             liquidity_score=inp.liquidity_score,
             current_exposure=inp.current_exposure,
+            source=inp.source,
+            event_id=inp.event_id,
+            market_id=inp.market_id,
+            selection_id=inp.selection_id,
         )
     )
     return StrategyDecision(
@@ -26,6 +30,7 @@ def run_strategy_row(inp: StrategyInput) -> StrategyDecision:
         approved=decision_output.approved,
         size=decision_output.recommended_size,
         edge=decision_output.edge,
+        market_implied_probability=inp.market_implied_probability,
         reasons=decision_output.reasons,
     )
 

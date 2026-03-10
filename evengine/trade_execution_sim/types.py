@@ -14,6 +14,7 @@ class SimulatedTrade:
     size: float
     edge: float | None
     executed: bool
+    entry_probability: float | None = None
     reasons: list[str] = field(default_factory=list)
 
 
@@ -22,5 +23,6 @@ class TradePnL:
     """Deterministic PnL event associated with one simulated trade."""
 
     trade: SimulatedTrade
-    outcome: float
+    outcome: bool | None
     pnl: float
+    settled: bool = False

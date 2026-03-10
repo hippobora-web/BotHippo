@@ -69,4 +69,5 @@ class TradeIntent:
     approved: bool
     size: float
     edge: float | None
+    market_implied_probability: float | None = None
     reasons: list[str] = field(default_factory=list)

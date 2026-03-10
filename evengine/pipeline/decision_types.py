@@ -15,6 +15,10 @@ class DecisionInput:
     confidence: float | None
     liquidity_score: float | None
     current_exposure: float
+    source: str | None = None
+    event_id: str | None = None
+    market_id: str | None = None
+    selection_id: str | None = None
 
 
 @dataclass

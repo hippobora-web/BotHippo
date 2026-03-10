@@ -12,6 +12,7 @@ class OrchestratorInput:
     """Input payload for the deterministic end-to-end orchestrator."""
 
     raw_prices: list[RawMarketPrice] = field(default_factory=list)
+    current_exposure: float = 0.0
 
 
 @dataclass

@@ -15,6 +15,10 @@ class StrategyInput:
     confidence: float | None
     liquidity_score: float | None
     current_exposure: float
+    source: str | None = None
+    event_id: str | None = None
+    market_id: str | None = None
+    selection_id: str | None = None
 
 
 @dataclass
@@ -26,4 +30,5 @@ class StrategyDecision:
     approved: bool
     size: float
     edge: float | None
+    market_implied_probability: float | None = None
     reasons: list[str] = field(default_factory=list)

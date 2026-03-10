@@ -31,7 +31,23 @@ def _parse_args() -> argparse.Namespace:
         default=2,
         help="JSON indentation for stdout output.",
     )
+    parser.add_argument(
+        "--current-exposure",
+        type=float,
+        default=0.0,
+        help="Starting open exposure carried into the run.",
+    )
     return parser.parse_args()
+
+
+def _optional_bool(value: Any) -> bool | None:
+    """Parse a nullable boolean value from JSON payloads."""
+
+    if value is None:
+        return None
+    if isinstance(value, bool):
+        return value
+    raise ValueError("invalid_input_row")
 
 
 
@@ -61,6 +77,13 @@ def _load_raw_prices(path: str) -> list[RawMarketPrice]:
                     asset_class=str(item["asset_class"]),
                     probability=float(item["probability"]),
                     timestamp=float(item["timestamp"]),
+                    source=None if item.get("source") is None else str(item["source"]),
+                    event_id=None if item.get("event_id") is None else str(item["event_id"]),
+                    market_id=None if item.get("market_id") is None else str(item["market_id"]),
+                    selection_id=(
+                        None if item.get("selection_id") is None else str(item["selection_id"])
+                    ),
+                    settled_outcome=_optional_bool(item.get("settled_outcome")),
                 )
             )
         except (KeyError, TypeError, ValueError) as exc:
@@ -108,7 +131,12 @@ def main() -> int:
         return 1
 
     try:
-        run = run_live_paper_trading(LivePaperTradingInput(raw_prices=raw_prices))
+        run = run_live_paper_trading(
+            LivePaperTradingInput(
+                raw_prices=raw_prices,
+                current_exposure=args.current_exposure,
+            )
+        )
         report = build_live_paper_trading_report(run)
     except Exception as exc:
         print(

@@ -14,7 +14,7 @@ def build_live_paper_trading_report(
     performance_report = build_performance_report(
         run.pnl_history,
         run.wins,
-        run.trades_executed,
+        run.trades_settled,
     )
     return LivePaperTradingReport(
         run=run,

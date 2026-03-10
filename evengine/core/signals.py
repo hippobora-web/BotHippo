@@ -13,13 +13,11 @@ def compute_signal_strength(
 ) -> float | None:
     """Compute deterministic signal strength from edge and quality factors."""
 
-    if edge is None:
+    if edge is None or confidence is None or liquidity_score is None:
         return None
     strength: float = edge
-    if confidence is not None:
-        strength *= confidence
-    if liquidity_score is not None:
-        strength *= liquidity_score
+    strength *= confidence
+    strength *= liquidity_score
     return strength
 
 
@@ -95,6 +93,34 @@ def build_edge_signal(
             reasons=reasons,
         )
 
+    if estimate.confidence is None:
+        reasons.append("confidence is unavailable")
+        return EdgeSignal(
+            asset_class=estimate.asset_class,
+            fair_probability=estimate.fair_probability,
+            market_implied_probability=estimate.market_implied_probability,
+            edge=estimate.edge,
+            confidence=estimate.confidence,
+            liquidity_score=estimate.liquidity_score,
+            signal_strength=signal_strength,
+            verdict="reject",
+            reasons=reasons,
+        )
+
+    if estimate.liquidity_score is None:
+        reasons.append("liquidity_score is unavailable")
+        return EdgeSignal(
+            asset_class=estimate.asset_class,
+            fair_probability=estimate.fair_probability,
+            market_implied_probability=estimate.market_implied_probability,
+            edge=estimate.edge,
+            confidence=estimate.confidence,
+            liquidity_score=estimate.liquidity_score,
+            signal_strength=signal_strength,
+            verdict="reject",
+            reasons=reasons,
+        )
+
     if estimate.edge < min_edge:
         reasons.append(f"edge {estimate.edge:.4f} is below min_edge {min_edge:.4f}")
         return EdgeSignal(
@@ -109,7 +135,7 @@ def build_edge_signal(
             reasons=reasons,
         )
 
-    if estimate.confidence is not None and estimate.confidence < min_confidence:
+    if estimate.confidence < min_confidence:
         reasons.append(
             f"confidence {estimate.confidence:.4f} is below min_confidence {min_confidence:.4f}"
         )
@@ -125,7 +151,7 @@ def build_edge_signal(
             reasons=reasons,
         )
 
-    if estimate.liquidity_score is not None and estimate.liquidity_score < min_liquidity:
+    if estimate.liquidity_score < min_liquidity:
         reasons.append(
             f"liquidity_score {estimate.liquidity_score:.4f} is below min_liquidity {min_liquidity:.4f}"
         )
@@ -142,10 +168,8 @@ def build_edge_signal(
         )
 
     reasons.append(f"edge {estimate.edge:.4f} meets min_edge {min_edge:.4f}")
-    if estimate.confidence is not None:
-        reasons.append("confidence threshold passed")
-    if estimate.liquidity_score is not None:
-        reasons.append("liquidity threshold passed")
+    reasons.append("confidence threshold passed")
+    reasons.append("liquidity threshold passed")
     return EdgeSignal(
         asset_class=estimate.asset_class,
         fair_probability=estimate.fair_probability,

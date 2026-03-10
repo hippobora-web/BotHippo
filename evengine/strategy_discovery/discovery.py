@@ -9,10 +9,7 @@ from evengine.market_scanner.scanner import (
     scan_market_observations,
 )
 from evengine.market_scanner.types import MarketAnomaly, MarketObservation
-from evengine.portfolio_engine.portfolio import compute_portfolio_metrics, update_portfolio
-from evengine.portfolio_engine.types import PortfolioState
 from evengine.strategy_discovery.types import StrategyConfig, StrategyResult
-from evengine.trade_execution_sim.executor import execute_trade_intent, simulate_trade_outcome
 
 
 def generate_strategy_configs() -> list[StrategyConfig]:
@@ -103,14 +100,8 @@ def evaluate_strategy(
     observation_lookup: dict[tuple[str, float, float], list[MarketObservation]] = (
         _build_observation_lookup(observations)
     )
-    portfolio_state: PortfolioState = PortfolioState(
-        balance=0.0,
-        trades=0,
-        wins=0,
-        losses=0,
-        pnl_history=[],
-    )
     pipeline_config: PipelineConfig = _pipeline_config_from_strategy_config(config)
+    approved_trades: int = 0
 
     for anomaly in anomalies:
         matching_observations: list[MarketObservation] = observation_lookup.get(_anomaly_key(anomaly), [])
@@ -119,19 +110,14 @@ def evaluate_strategy(
         observation: MarketObservation = matching_observations.pop(0)
         decision_input: DecisionInput = _decision_input_from_anomaly(anomaly, observation)
         pipeline_result = run_decision_pipeline(decision_input, config=pipeline_config)
-        simulated_trade = execute_trade_intent(pipeline_result.trade_intent)
-        trade_pnl = simulate_trade_outcome(
-            simulated_trade,
-            observation.reference_probability,
-        )
-        portfolio_state = update_portfolio(portfolio_state, trade_pnl)
+        if pipeline_result.trade_intent.approved:
+            approved_trades += 1
 
-    metrics = compute_portfolio_metrics(portfolio_state)
     return StrategyResult(
         config=config,
-        total_pnl=metrics.total_pnl,
-        win_rate=metrics.win_rate,
-        trades=portfolio_state.trades,
+        total_pnl=0.0,
+        win_rate=0.0,
+        trades=approved_trades,
     )
 
 

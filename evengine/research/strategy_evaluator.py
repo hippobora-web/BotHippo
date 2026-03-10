@@ -44,6 +44,10 @@ def _apply_strategy_config(dataset: list[StrategyInput], strategy_config: dict) 
                 confidence=row.confidence,
                 liquidity_score=row.liquidity_score,
                 current_exposure=row.current_exposure,
+                source=row.source,
+                event_id=row.event_id,
+                market_id=row.market_id,
+                selection_id=row.selection_id,
             )
         )
     return adjusted_rows
