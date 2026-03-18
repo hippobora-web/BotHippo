@@ -1,8 +1,8 @@
-# EVEngine
+# BotHippo
 
 ## Disclaimer
 
-EVEngine is a research prototype. It is not production-ready, is not safe for unattended live trading, and should not be used to place real-money wagers or orders without a full production hardening pass.
+BotHippo is a research prototype. It is not production-ready, is not safe for unattended live trading, and should not be used to place real-money wagers or orders without a full production hardening pass.
 
 The current codebase is designed to be explicit about missing data and unresolved outcomes:
 
